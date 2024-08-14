@@ -31,8 +31,8 @@ export const PAGES = gql`
 `;
 
 export const PAGE = gql`
-  query Pages($draft: Boolean, $where: P{age_where},) {
-    Page(draft: $draft, where: $where, limit: 1, page: 1) {
+  query Page( $where: Page_where,) {
+    Pages(where: $where, limit: 1, page: 1) {
       docs {
         id
         title

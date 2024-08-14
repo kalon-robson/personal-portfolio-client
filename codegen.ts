@@ -8,7 +8,7 @@ const config: CodegenConfig = {
       plugins: [
         'typescript-operations',
         'typescript',
-        'typescript-react-apollo',
+        'typescript-graphql-request',
       ],
     },
   },

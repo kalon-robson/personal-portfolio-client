@@ -1,11 +1,11 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import { GraphQLClient, RequestOptions } from 'graphql-request';
+import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {} as const;
+type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 export type ArticleScrollerBlockFragmentFragment = { __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null };
 
 export type ButtonsBlockFragmentFragment = { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, buttonType?: Buttons_Buttons_ButtonType | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null };
@@ -42,6 +42,23 @@ export type ArticleQueryVariables = Exact<{
 
 
 export type ArticleQuery = { __typename?: 'Query', Articles?: { __typename?: 'Articles', docs?: Array<{ __typename?: 'Article', id?: string | null, title?: string | null, slug?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null, layout?: { __typename?: 'Article_Layout', blocks?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null } | null> | null } | null };
+
+export type PagesQueryVariables = Exact<{
+  where?: InputMaybe<Page_Where>;
+  limit?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sort?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type PagesQuery = { __typename?: 'Query', Pages?: { __typename?: 'Pages', hasNextPage?: boolean | null, hasPrevPage?: boolean | null, limit?: number | null, nextPage?: number | null, offset?: number | null, page?: number | null, pagingCounter?: number | null, prevPage?: number | null, totalDocs?: number | null, totalPages?: number | null, docs?: Array<{ __typename?: 'Page', id?: string | null, title: string, slug?: string | null, showSideNavigation?: boolean | null, updatedAt?: any | null, createdAt?: any | null, header?: { __typename?: 'Page_Header', description: any } | null } | null> | null } | null };
+
+export type PageQueryVariables = Exact<{
+  where?: InputMaybe<Page_Where>;
+}>;
+
+
+export type PageQuery = { __typename?: 'Query', Pages?: { __typename?: 'Pages', docs?: Array<{ __typename?: 'Page', id?: string | null, title: string, slug?: string | null, showSideNavigation?: boolean | null, updatedAt?: any | null, createdAt?: any | null, header?: { __typename?: 'Page_Header', description: any } | null, layout?: { __typename?: 'Page_Layout', blocks?: Array<{ __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null } | { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, buttonType?: Buttons_Buttons_ButtonType | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null } | { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null } | { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, block?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null } | null> | null } | null };
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -5809,38 +5826,6 @@ export const ArticlesDocument = gql`
   }
 }
     `;
-
-/**
- * __useArticlesQuery__
- *
- * To run a query within a React component, call `useArticlesQuery` and pass it any options that fit your needs.
- * When your component renders, `useArticlesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useArticlesQuery({
- *   variables: {
- *      draft: // value for 'draft'
- *      where: // value for 'where'
- *      limit: // value for 'limit'
- *      page: // value for 'page'
- *      sort: // value for 'sort'
- *   },
- * });
- */
-export function useArticlesQuery(baseOptions?: Apollo.QueryHookOptions<ArticlesQuery, ArticlesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ArticlesQuery, ArticlesQueryVariables>(ArticlesDocument, options);
-      }
-export function useArticlesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticlesQuery, ArticlesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ArticlesQuery, ArticlesQueryVariables>(ArticlesDocument, options);
-        }
-export type ArticlesQueryHookResult = ReturnType<typeof useArticlesQuery>;
-export type ArticlesLazyQueryHookResult = ReturnType<typeof useArticlesLazyQuery>;
-export type ArticlesQueryResult = Apollo.QueryResult<ArticlesQuery, ArticlesQueryVariables>;
 export const ArticleDocument = gql`
     query Article($draft: Boolean, $where: Article_where) {
   Articles(draft: $draft, where: $where, limit: 1, page: 1) {
@@ -5865,32 +5850,87 @@ export const ArticleDocument = gql`
 }
     ${ContentBlockFragmentFragmentDoc}
 ${ImageBlockFragmentFragmentDoc}`;
-
-/**
- * __useArticleQuery__
- *
- * To run a query within a React component, call `useArticleQuery` and pass it any options that fit your needs.
- * When your component renders, `useArticleQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useArticleQuery({
- *   variables: {
- *      draft: // value for 'draft'
- *      where: // value for 'where'
- *   },
- * });
- */
-export function useArticleQuery(baseOptions?: Apollo.QueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, options);
+export const PagesDocument = gql`
+    query Pages($where: Page_where, $limit: Int, $page: Int, $sort: String) {
+  Pages(where: $where, limit: $limit, page: $page, sort: $sort) {
+    docs {
+      id
+      title
+      header {
+        description
       }
-export function useArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ArticleQuery, ArticleQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ArticleQuery, ArticleQueryVariables>(ArticleDocument, options);
+      slug
+      showSideNavigation
+      updatedAt
+      createdAt
+    }
+    hasNextPage
+    hasPrevPage
+    limit
+    nextPage
+    offset
+    page
+    pagingCounter
+    prevPage
+    totalDocs
+    totalPages
+  }
+}
+    `;
+export const PageDocument = gql`
+    query Page($where: Page_where) {
+  Pages(where: $where, limit: 1, page: 1) {
+    docs {
+      id
+      title
+      header {
+        description
+      }
+      slug
+      showSideNavigation
+      updatedAt
+      createdAt
+      layout {
+        blocks {
+          ...ContentBlockFragment
+          ...ImageBlockFragment
+          ...ButtonsBlockFragment
+          ...ArticleScrollerBlockFragment
+          ...CardListBlockFragment
+          ...IconsRowBlockFragment
+          ...ColumnsBlockFragment
         }
-export type ArticleQueryHookResult = ReturnType<typeof useArticleQuery>;
-export type ArticleLazyQueryHookResult = ReturnType<typeof useArticleLazyQuery>;
-export type ArticleQueryResult = Apollo.QueryResult<ArticleQuery, ArticleQueryVariables>;
+      }
+    }
+  }
+}
+    ${ContentBlockFragmentFragmentDoc}
+${ImageBlockFragmentFragmentDoc}
+${ButtonsBlockFragmentFragmentDoc}
+${ArticleScrollerBlockFragmentFragmentDoc}
+${CardListBlockFragmentFragmentDoc}
+${IconsRowBlockFragmentFragmentDoc}
+${ColumnsBlockFragmentFragmentDoc}`;
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
+  return {
+    Articles(variables?: ArticlesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<ArticlesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<ArticlesQuery>(ArticlesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Articles', 'query', variables);
+    },
+    Article(variables?: ArticleQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<ArticleQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<ArticleQuery>(ArticleDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Article', 'query', variables);
+    },
+    Pages(variables?: PagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<PagesQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PagesQuery>(PagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Pages', 'query', variables);
+    },
+    Page(variables?: PageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<PageQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageQuery>(PageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Page', 'query', variables);
+    }
+  };
+}
+export type Sdk = ReturnType<typeof getSdk>;

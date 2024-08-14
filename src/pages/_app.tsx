@@ -1,50 +1,19 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  createHttpLink,
-} from '@apollo/client';
 import { globalStyles } from '../styles';
+import { LeftSideMenu } from '../sections/LeftSideMenu';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles();
-
-  const apiUri = `${process.env.NEXT_PUBLIC_SERVER_URL}/api/graphql`;
-
-  const httpLink = createHttpLink({
-    credentials: process.env.NODE_ENV === 'development' ? 'include' : 'same-origin',
-    uri: `${apiUri}`,
-  });
-
-  const apolloClient = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: httpLink,
-  });
+export default ({ Component, pageProps }: AppProps) => {
+  const styles = globalStyles();
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <div>
-        <Head>
-          <title>Website Next Boilerplate</title>
-          <meta
-            name="description"
-            content="Built and maintained by the Innovixx team."
-          />
-          <link
-            rel="icon"
-            href="/favicon.svg"
-          />
-        </Head>
-        <main>
-          <Component {...pageProps} />
-        </main>
-        <footer />
+    <div className={styles.appContainer}>
+      <div className={styles.leftSide}>
+        <LeftSideMenu />
       </div>
-    </ApolloProvider>
+      <main className={styles.mainContainer}>
+        <Component {...pageProps} />
+      </main>
+    </div>
   );
-}
-
-export default MyApp;
+};

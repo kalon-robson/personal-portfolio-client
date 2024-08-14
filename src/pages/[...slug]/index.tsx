@@ -1,13 +1,11 @@
 import React from 'react';
 import type { GetServerSideProps } from 'next';
-import { Pages, PagesQuery, PagesQueryVariables } from '../../graphql/generated/schema';
+import { Page } from '../../graphql/generated/schema';
 import { RenderBlocks } from '../../components';
 import { cmsClient } from '../../graphql';
-import { PAGES } from '../../graphql/query/page';
 
 interface Props {
-  // @ts-expect-error - The singular prop is available
-  page?: Pages['docs'][0];
+  page?: Page
 }
 
 const Home: React.FC<Props> = ({
@@ -21,22 +19,18 @@ const Home: React.FC<Props> = ({
     <div>
       <h1>{page.title}</h1>
       <RenderBlocks
-        layout={page.layout || []}
+        blocks={page.layout?.blocks || []}
       />
     </div>
   );
 };
-
-export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const slug = ctx.params?.slug
     ? (ctx.params.slug as string[]).join('/')
     : 'home';
 
-  const data = await cmsClient.request<PagesQuery, PagesQueryVariables>(PAGES, {
-    limit: 1,
-    page: 1,
+  const { Pages } = await cmsClient.Page({
     where: {
       slug: {
         equals: slug,
@@ -44,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     },
   });
 
-  if (!data?.Pages?.docs?.length) {
+  if (!Pages || !Pages.docs?.length) {
     ctx.res.statusCode = 404;
 
     return {
@@ -54,7 +48,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      page: data?.Pages?.docs?.[0],
+      page: Pages.docs[0],
     },
   };
 };
+
+export default Home;
