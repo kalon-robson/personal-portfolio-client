@@ -12,6 +12,8 @@ export type ButtonsBlockFragmentFragment = { __typename?: 'Buttons', id?: string
 
 export type CardListBlockFragmentFragment = { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null };
 
+export type ColumnsBlockFragmentFragment = { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, block?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null };
+
 export type ContentBlockFragmentFragment = { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
 
 export type IconsRowBlockFragmentFragment = { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null };
@@ -5710,6 +5712,20 @@ export const ContentBlockFragmentFragmentDoc = gql`
   blockType
 }
     `;
+export const ColumnsBlockFragmentFragmentDoc = gql`
+    fragment ColumnsBlockFragment on Columns {
+  columns {
+    id
+    columnWidth
+    block {
+      ...ContentBlockFragment
+    }
+  }
+  id
+  blockName
+  blockType
+}
+    ${ContentBlockFragmentFragmentDoc}`;
 export const IconsRowBlockFragmentFragmentDoc = gql`
     fragment IconsRowBlockFragment on IconsRow {
   icons {
