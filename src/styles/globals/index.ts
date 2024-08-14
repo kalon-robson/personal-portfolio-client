@@ -35,8 +35,10 @@ export const globalStyles = createUseStyles({
     },
     p: {
       ...body,
-      fontWeight: 300,
       margin: `0 0 ${spacing.small} 0`,
+    },
+    span: {
+      ...body,
     },
   },
   appContainer: {

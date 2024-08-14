@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 
 export const LINK_FIELD = gql`
   fragment LinkFieldFragment on Link {

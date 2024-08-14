@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 import { CONTENT_BLOCK } from '../content';
 
 export const COLUMNS_BLOCK = gql`

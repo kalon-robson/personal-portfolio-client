@@ -1,11 +1,10 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 import { LINK_FIELD } from '../../fields';
 
 export const BUTTONS_BLOCK = gql`
   fragment ButtonsBlockFragment on Buttons {
     buttons {
       id
-      buttonType
       link {
         ...LinkFieldFragment
       }

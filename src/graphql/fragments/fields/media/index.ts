@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 
 export const MEDIA_FIELD = gql`
   fragment MediaFieldFragment on Media {

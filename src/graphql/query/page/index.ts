@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 import { ARTICLE_SCROLLER_BLOCK, BUTTONS_BLOCK, CARD_LIST_BLOCK, COLUMNS_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
 import { ICONS_ROW_BLOCK } from '../../fragments/blocks/iconsRow';
 

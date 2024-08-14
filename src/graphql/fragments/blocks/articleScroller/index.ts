@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 
 export const ARTICLE_SCROLLER_BLOCK = gql`
   fragment ArticleScrollerBlockFragment on ArticleScroller {
