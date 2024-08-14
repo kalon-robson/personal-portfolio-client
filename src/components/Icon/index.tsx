@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { icons } from './svgs';
 
 export type IconType = keyof typeof icons;
-
 interface Props {
   icon: IconType;
   className?: string;
@@ -16,12 +15,20 @@ export const Icon: React.FC<Props> = ({
   icon,
   fill,
 }) => {
+  const [svgDoc, setSvgDoc] = useState<Document | null>(null);
+
   const svg = icons[icon];
 
-  const parser = new DOMParser();
-  const svgDoc = parser.parseFromString(svg, 'image/svg+xml');
-  const svgElement = svgDoc.getElementsByTagName('svg')[0];
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const parser = new DOMParser();
+      setSvgDoc(parser.parseFromString(svg, 'image/svg+xml'));
+    }
+  }, [svg]);
 
+  if (!svgDoc) return null;
+
+  const svgElement = svgDoc.getElementsByTagName('svg')[0];
   const viewBox = svgElement?.getAttribute('viewBox')?.split(' ');
 
   const width = viewBox ? parseInt(viewBox[2], 10) : 0;
@@ -41,15 +48,20 @@ export const Icon: React.FC<Props> = ({
   svgElement.setAttribute('height', svgHeight.toString());
   svgElement.setAttribute('className', className || '');
   svgElement.setAttribute('fill', fill || 'currentColor');
-
+  svgElement.setAttribute('aria-hidden', 'true');
+  svgElement.setAttribute('focusable', 'false');
+  svgElement.setAttribute('role', 'img');
   return (
-    <span
-      dangerouslySetInnerHTML={{ __html: svgElement.outerHTML }}
-      className={className}
-      style={{
-        display: 'inline-block',
-        lineHeight: 0,
-      }}
-    />
+    <React.Fragment>
+
+      <span
+        dangerouslySetInnerHTML={{ __html: svgElement.outerHTML }}
+        className={className}
+        style={{
+          display: 'inline-block',
+          lineHeight: 0,
+        }}
+      />
+    </React.Fragment>
   );
 };

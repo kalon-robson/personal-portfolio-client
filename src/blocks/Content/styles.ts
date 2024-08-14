@@ -3,6 +3,6 @@ import { spacing } from '../../styles';
 
 export const contentComponentStyles = createUseStyles({
   container: {
-    marginBottom: `${spacing.medium} !important`,
+    marginBottom: `${spacing.large} !important`,
   },
 });

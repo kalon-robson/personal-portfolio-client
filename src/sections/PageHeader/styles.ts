@@ -3,7 +3,7 @@ import { h5, spacing } from '../../styles';
 
 export const pageHeaderStyles = createUseStyles({
   container: {
-    marginBottom: spacing.medium,
+    marginBottom: spacing.large,
     paddingTop: spacing.medium,
   },
   description: {

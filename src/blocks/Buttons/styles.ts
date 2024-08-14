@@ -6,6 +6,6 @@ export const buttonsComponentStyles = createUseStyles({
     '& $button:not(:last-child)': {
       marginRight: spacing.small,
     },
-    marginBottom: `${spacing.medium} !important`,
+    marginBottom: `${spacing.large} !important`,
   },
 });

@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
+import { MEDIA_FIELD } from '../../fragments/fields';
 
 export const ARTICLES = gql`
   query Articles($draft: Boolean, $where: Article_where, $limit: Int, $page: Int, $sort: String) {
@@ -10,6 +11,9 @@ export const ARTICLES = gql`
         slug
         header {
           description
+          featuredImage {
+            ...MediaFieldFragment
+          }
         }
         publishedAt
         createdAt
@@ -27,6 +31,7 @@ export const ARTICLES = gql`
       totalPages
     }
   }
+  ${MEDIA_FIELD}
 `;
 
 export const ARTICLE = gql`
