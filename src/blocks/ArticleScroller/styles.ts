@@ -8,6 +8,9 @@ export const articleScrollerComponentStyles = createUseStyles({
       backgroundColor: '#292929',
     },
     '100%': {
+      backgroundColor: '#292929',
+    },
+    '50%': {
       backgroundColor: Color('#292929').lighten(0.1).hex(),
     },
   },
@@ -22,7 +25,7 @@ export const articleScrollerComponentStyles = createUseStyles({
     '&:last-child': {
       width: '25%',
     },
-    animation: '$shimmer 1000ms infinite',
+    animation: '$shimmer 1500ms infinite',
     background: '#292929',
     borderRadius: '4px',
     height: '270px',
