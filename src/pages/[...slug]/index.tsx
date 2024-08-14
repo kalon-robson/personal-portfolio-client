@@ -4,6 +4,7 @@ import { Page } from '../../graphql/generated/schema';
 import { RenderBlocks } from '../../components';
 import { cmsClient } from '../../graphql';
 import { ContainerWithRightSideMenu } from '../../components/layouts/ContainerWithRightSideMenu';
+import { PageHeader } from '../../sections';
 
 interface Props {
   page?: Page
@@ -18,7 +19,10 @@ const Home: React.FC<Props> = ({
 
   return (
     <ContainerWithRightSideMenu>
-      <h1>{page.title}</h1>
+      <PageHeader
+        title={page.title}
+        header={page.header}
+      />
       <RenderBlocks
         blocks={page.layout?.blocks || []}
       />

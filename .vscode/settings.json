@@ -3,5 +3,6 @@
     "codegen",
     "devcontainers",
     "payloadcms"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
