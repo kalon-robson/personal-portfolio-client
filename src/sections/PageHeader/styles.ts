@@ -9,6 +9,7 @@ export const pageHeaderStyles = createUseStyles({
   description: {
     '& *': {
       fontSize: `${h5.fontSize} !important`,
+      lineHeight: `${h5.lineHeight} !important`,
     },
   },
 });
