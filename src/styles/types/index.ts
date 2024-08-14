@@ -16,7 +16,7 @@ const heading = {
     margin: 'inherit',
   },
   fontWeight: 600,
-  margin: 0,
+  marginBottom: base(),
 };
 
 export const h1 = {

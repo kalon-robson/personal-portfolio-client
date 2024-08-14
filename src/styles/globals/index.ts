@@ -9,6 +9,7 @@ import { colors } from '../colors';
 export const globalStyles = createUseStyles({
   '@global': {
     '#__next': {
+      color: prefersLightMode() ? colors.dark : colors.light,
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
@@ -48,5 +49,7 @@ export const globalStyles = createUseStyles({
     width: leftSideWidth,
   },
   mainContainer: {
+    display: 'flex',
+    flexDirection: 'column',
   },
 });

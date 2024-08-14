@@ -3,6 +3,7 @@ import type { GetServerSideProps } from 'next';
 import { Page } from '../../graphql/generated/schema';
 import { RenderBlocks } from '../../components';
 import { cmsClient } from '../../graphql';
+import { ContainerWithRightSideMenu } from '../../components/layouts/ContainerWithRightSideMenu';
 
 interface Props {
   page?: Page
@@ -16,12 +17,12 @@ const Home: React.FC<Props> = ({
   }
 
   return (
-    <div>
+    <ContainerWithRightSideMenu>
       <h1>{page.title}</h1>
       <RenderBlocks
         blocks={page.layout?.blocks || []}
       />
-    </div>
+    </ContainerWithRightSideMenu>
   );
 };
 
