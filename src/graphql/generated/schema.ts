@@ -14,6 +14,8 @@ export type CardListBlockFragmentFragment = { __typename?: 'CardList', id?: stri
 
 export type ContentBlockFragmentFragment = { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
 
+export type IconsRowBlockFragmentFragment = { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null };
+
 export type ImageBlockFragmentFragment = { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } };
 
 export type LinkFieldFragmentFragment = { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null };
@@ -5703,6 +5705,17 @@ export const CardListBlockFragmentFragmentDoc = gql`
 export const ContentBlockFragmentFragmentDoc = gql`
     fragment ContentBlockFragment on Content {
   content
+  id
+  blockName
+  blockType
+}
+    `;
+export const IconsRowBlockFragmentFragmentDoc = gql`
+    fragment IconsRowBlockFragment on IconsRow {
+  icons {
+    id
+    icon
+  }
   id
   blockName
   blockType

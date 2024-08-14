@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import { ARTICLE_SCROLLER_BLOCK, BUTTONS_BLOCK, CARD_LIST_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
+import { ICONS_ROW_BLOCK } from '../../fragments/blocks/iconsRow';
 
 export const PAGES = gql`
   query Pages($where: Page_where, $limit: Int, $page: Int, $sort: String) {
@@ -49,6 +50,7 @@ export const PAGE = gql`
             ...ButtonsBlockFragment
             ...ArticleScrollerBlockFragment
             ...CardListBlockFragment
+            ...IconsRowBlockFragment
           }
         }
       }
@@ -59,4 +61,5 @@ export const PAGE = gql`
   ${BUTTONS_BLOCK}
   ${ARTICLE_SCROLLER_BLOCK}
   ${CARD_LIST_BLOCK}
+  ${ICONS_ROW_BLOCK}
 `;
