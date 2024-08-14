@@ -10,6 +10,8 @@ export type ArticleScrollerBlockFragmentFragment = { __typename?: 'ArticleScroll
 
 export type ButtonsBlockFragmentFragment = { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, buttonType?: Buttons_Buttons_ButtonType | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null };
 
+export type CardListBlockFragmentFragment = { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null };
+
 export type ContentBlockFragmentFragment = { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
 
 export type ImageBlockFragmentFragment = { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } };
@@ -5685,6 +5687,19 @@ export const ButtonsBlockFragmentFragmentDoc = gql`
   blockType
 }
     ${LinkFieldFragmentFragmentDoc}`;
+export const CardListBlockFragmentFragmentDoc = gql`
+    fragment CardListBlockFragment on CardList {
+  cards {
+    id
+    title
+    content
+    tags
+  }
+  id
+  blockName
+  blockType
+}
+    `;
 export const ContentBlockFragmentFragmentDoc = gql`
     fragment ContentBlockFragment on Content {
   content
