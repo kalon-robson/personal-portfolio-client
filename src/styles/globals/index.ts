@@ -3,7 +3,7 @@ import { baselinePX, htmlFontSize } from '../base';
 import { body, h1, h2, h3, h4, h5 } from '../types';
 import { spacing } from '../sizes';
 import { leftSideWidth } from '../variables';
-import { prefersLightMode } from '../utils/prefersLightMode';
+import { prefersLightMode } from '../../utils/prefersLightMode';
 import { colors } from '../colors';
 
 export const globalStyles = createUseStyles({

@@ -1,3 +1,4 @@
+import { prefersLightMode } from '../../utils/prefersLightMode';
 import { base } from '../base';
 import { colors } from '../colors';
 import { queries } from '../queries';
@@ -16,7 +17,7 @@ const heading = {
     lineHeight: 'inherit',
     margin: 'inherit',
   },
-  color: colors.white,
+  color: prefersLightMode() ? colors.dark : colors.white,
   fontWeight: 700,
   marginBottom: base(),
 };
@@ -79,7 +80,7 @@ export const h5 = {
 
 export const body = {
   ...defaultType,
-  color: '#939393',
+  color: prefersLightMode() ? colors.dark : '#939393',
   fontSize: base(0.8),
   fontWeight: 400,
   lineHeight: base(0.8 * 1.25),
