@@ -1,19 +1,19 @@
 import { gql } from '@apollo/client';
-import { BUTTONS_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
+import { CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
 
-export const PAGES = gql`
-  query Pages($where: Page_where, $limit: Int, $page: Int, $sort: String) {
-    Pages(where: $where, limit: $limit, page: $page, sort: $sort) {
+export const ARTICLES = gql`
+  query Articles($draft: Boolean, $where: Article_where, $limit: Int, $page: Int, $sort: String) {
+    Articles(draft: $draft, where: $where, limit: $limit, page: $page, sort: $sort) {
       docs {
         id
         title
+        slug
         header {
           description
         }
-        slug
-        showSideNavigation
-        updatedAt
+        publishedAt
         createdAt
+        updatedAt
       }
       hasNextPage
       hasPrevPage
@@ -29,24 +29,23 @@ export const PAGES = gql`
   }
 `;
 
-export const PAGE = gql`
-  query Pages($draft: Boolean, $where: P{age_where},) {
-    Page(draft: $draft, where: $where, limit: 1, page: 1) {
+export const ARTICLE = gql`
+  query Article($draft: Boolean, $where: Article_where,) {
+    Articles(draft: $draft, where: $where, limit: 1, page: 1) {
       docs {
         id
         title
+        slug
         header {
           description
         }
-        slug
-        showSideNavigation
-        updatedAt
+        publishedAt
         createdAt
+        updatedAt
         layout {
           blocks {
             ...ContentBlockFragment
             ...ImageBlockFragment
-            ...ButtonsBlockFragment
           }
         }
       }
@@ -54,5 +53,4 @@ export const PAGE = gql`
   }
   ${CONTENT_BLOCK}
   ${IMAGE_BLOCK}
-  ${BUTTONS_BLOCK}
 `;

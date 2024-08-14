@@ -2,7 +2,6 @@ import { gql } from '@apollo/client';
 import { MEDIA_FIELD } from '../../fields/media';
 
 export const IMAGE_BLOCK = gql`
-  ${MEDIA_FIELD}
   fragment ImageBlockFragment on Image {
     image {
       ...MediaFieldFragment
@@ -12,4 +11,5 @@ export const IMAGE_BLOCK = gql`
     blockName
     blockType
   }
+  ${MEDIA_FIELD}
 `;
