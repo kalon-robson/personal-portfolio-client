@@ -11,9 +11,9 @@ export const articleCardStyles = createUseStyles({
         opacity: 0,
       },
       background: '#292929',
-      border: `1px solid ${colors.white}`,
+      border: `1px solid ${colors.light}`,
 
-      boxShadow: `0 0 10px ${colors.white}`,
+      boxShadow: `0 0 10px ${colors.light}`,
     },
     WebkitTapHighlightColor: 'transparent',
     border: '1px solid transparent',

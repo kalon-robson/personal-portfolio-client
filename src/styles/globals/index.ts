@@ -42,7 +42,7 @@ export const globalStyles = createUseStyles({
     },
   },
   appContainer: {
-    background: `linear-gradient(${prefersLightMode() ? colors.white : colors.dark}, ${prefersLightMode() ? colors.light : '#101010'})`,
+    background: `linear-gradient(${prefersLightMode() ? colors.light : colors.dark}, ${prefersLightMode() ? colors.light : '#101010'})`,
     display: 'flex',
     flex: 1,
   },

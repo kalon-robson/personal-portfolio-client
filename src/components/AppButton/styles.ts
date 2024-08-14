@@ -23,7 +23,7 @@ export const appButtonStyles = createUseStyles({
     border: '1px solid transparent',
     cursor: 'pointer',
     display: 'inline-flex',
-    padding: spacing.xSmall,
+
   },
   buttonLoading: {
     cursor: 'not-allowed',
@@ -51,18 +51,19 @@ export const appButtonStyles = createUseStyles({
   },
   primary: {
     '& *': {
-      color: colors.white,
+      color: colors.light,
     },
     '&:hover': {
       background: Color(colors.dark).darken(0.1).string(),
-      border: `1px solid ${colors.white} !important`,
+      border: `1px solid ${colors.light} !important`,
       // outer glow
-      boxShadow: `0 0 10px ${colors.white}`,
+      boxShadow: `0 0 10px ${colors.light}`,
     },
     background: colors.dark,
+    padding: `${spacing.xSmall} ${spacing.small}`,
     transition: 'all 300ms',
   },
   tertiary: {
-
+    padding: `${spacing.xSmall} ${spacing.small}`,
   },
 });

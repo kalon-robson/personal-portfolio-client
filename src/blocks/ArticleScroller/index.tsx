@@ -42,8 +42,8 @@ export const ArticleScrollerComponent: React.FC<ArticleScrollerType> = ({
           <div>
             <SliderProvider
               slidesToShow={2.2}
-              autoPlay
-              autoplaySpeed={5000}
+            // autoPlay
+            // autoplaySpeed={5000}
             >
               <SliderTrack className={styles.sliderTrack}>
                 {articles?.map((article, index) => (

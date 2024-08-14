@@ -17,7 +17,7 @@ const heading = {
     lineHeight: 'inherit',
     margin: 'inherit',
   },
-  color: prefersLightMode() ? colors.dark : colors.white,
+  color: prefersLightMode() ? colors.dark : colors.light,
   fontWeight: 700,
   marginBottom: base(),
 };
