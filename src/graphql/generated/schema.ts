@@ -6,6 +6,8 @@ export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K]
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 const defaultOptions = {} as const;
+export type ArticleScrollerBlockFragmentFragment = { __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null };
+
 export type ButtonsBlockFragmentFragment = { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, buttonType?: Buttons_Buttons_ButtonType | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null };
 
 export type ContentBlockFragmentFragment = { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
@@ -593,14 +595,14 @@ export type ArticleReadVersionsDocAccess = {
 
 export type ArticleScroller = {
   __typename?: 'ArticleScroller';
-  article?: Maybe<Array<Article>>;
+  articles?: Maybe<Array<Article>>;
   blockName?: Maybe<Scalars['String']>;
   blockType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
 };
 
 
-export type ArticleScrollerArticleArgs = {
+export type ArticleScrollerArticlesArgs = {
   draft?: InputMaybe<Scalars['Boolean']>;
 };
 
@@ -5640,6 +5642,24 @@ export type VersionsArticles = {
   totalPages?: Maybe<Scalars['Int']>;
 };
 
+export const ArticleScrollerBlockFragmentFragmentDoc = gql`
+    fragment ArticleScrollerBlockFragment on ArticleScroller {
+  articles {
+    id
+    slug
+    title
+    publishedAt
+    header {
+      description
+    }
+    createdAt
+    updatedAt
+  }
+  id
+  blockName
+  blockType
+}
+    `;
 export const LinkFieldFragmentFragmentDoc = gql`
     fragment LinkFieldFragment on Link {
   type
