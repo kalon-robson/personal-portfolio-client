@@ -1,10 +1,12 @@
 import React from 'react';
 import type { GetServerSideProps } from 'next';
+import { WindowInfoProvider } from '@faceless-ui/window-info';
 import { Page } from '../../graphql/generated/schema';
 import { RenderBlocks } from '../../components';
 import { cmsClient } from '../../graphql';
 import { ContainerWithRightSideMenu } from '../../components/layouts/ContainerWithRightSideMenu';
 import { PageHeader } from '../../sections';
+import { breakpoints } from '../../styles';
 
 interface Props {
   page?: Page
@@ -18,15 +20,25 @@ const Home: React.FC<Props> = ({
   }
 
   return (
-    <ContainerWithRightSideMenu>
-      <PageHeader
-        title={page.title}
-        header={page.header}
-      />
-      <RenderBlocks
-        blocks={page.layout?.blocks || []}
-      />
-    </ContainerWithRightSideMenu>
+    <WindowInfoProvider
+      breakpoints={{
+        l: `(max-width: ${breakpoints.lg}px)`,
+        m: `(max-width: ${breakpoints.md}px)`,
+        s: `(max-width: ${breakpoints.sm}px)`,
+        xl: `(max-width: ${breakpoints.xl}px)`,
+      }}
+    >
+      <ContainerWithRightSideMenu>
+        <PageHeader
+          title={page.title}
+          header={page.header}
+        />
+        <RenderBlocks
+          blocks={page.layout?.blocks || []}
+        />
+      </ContainerWithRightSideMenu>
+    </WindowInfoProvider>
+
   );
 };
 

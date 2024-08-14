@@ -19,7 +19,6 @@ const heading = {
   },
   color: prefersLightMode() ? colors.dark : colors.light,
   fontWeight: 700,
-  marginBottom: base(),
 };
 
 export const h1 = {
@@ -31,6 +30,7 @@ export const h1 = {
     fontSize: base(2.15),
     lineHeight: base(2.15 * 1.27),
   },
+
 };
 
 export const h2 = {
@@ -41,6 +41,11 @@ export const h2 = {
   [queries.md]: {
     fontSize: base(2.15),
     lineHeight: base(2.15 * 1.27),
+  },
+
+  [queries.sm]: {
+    fontSize: base(1.5),
+    lineHeight: base(1.5 * 1.27),
   },
 };
 

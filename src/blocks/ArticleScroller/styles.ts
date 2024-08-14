@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import Color from 'color';
-import { body, spacing } from '../../styles';
+import { body, queries, spacing } from '../../styles';
 
 export const articleScrollerComponentStyles = createUseStyles({
   '@keyframes shimmer': {
@@ -34,12 +34,18 @@ export const articleScrollerComponentStyles = createUseStyles({
     justifyContent: 'center',
     paddingLeft: spacing.medium,
     paddingTop: spacing.small,
+    [queries.sm]: {
+      paddingLeft: 0,
+    },
   },
   sliderTrack: {
     '&::-webkit-scrollbar': {
       display: 'none',
     },
     paddingLeft: spacing.small,
+    [queries.sm]: {
+      paddingLeft: 0,
+    },
   },
   title: {
     ...body,

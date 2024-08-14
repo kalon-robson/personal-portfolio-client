@@ -1,15 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import { Slide, SliderProvider, SliderTrack } from '@faceless-ui/slider';
+import { useWindowInfo } from '@faceless-ui/window-info';
 import { ArticleScroller as ArticleScrollerType } from '../../graphql/generated/schema';
 import { articleScrollerComponentStyles } from './styles';
 import { Container } from '../../components/layouts';
 import { ArticleCard, Icon } from '../../components';
 import { cmsClient } from '../../graphql';
+import { breakpoints } from '../../styles';
 
 export const ArticleScrollerComponent: React.FC<ArticleScrollerType> = ({
   articles: selectedArticles,
 }) => {
   const [articles, setArticles] = React.useState<ArticleScrollerType['articles']>(selectedArticles);
+
+  const { width } = useWindowInfo();
+  const isLg = (width || 0) < breakpoints.lg;
+  const isSm = (width || 0) < breakpoints.sm;
 
   const getRecentArticles = async () => {
     const recentArticles = await cmsClient.Articles({
@@ -41,7 +47,9 @@ export const ArticleScrollerComponent: React.FC<ArticleScrollerType> = ({
         (articles?.length || 0) > 0 ? (
           <div>
             <SliderProvider
-              slidesToShow={2.2}
+              // TODO: reduce to 1.2 on md
+              // eslint-disable-next-line no-nested-ternary
+              slidesToShow={isSm ? 1 : isLg ? 1.2 : 2.2}
             // autoPlay
             // autoplaySpeed={5000}
             >

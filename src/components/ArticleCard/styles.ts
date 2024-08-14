@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import { base, colors, h5, spacing } from '../../styles';
+import { base, colors, h5, queries, spacing } from '../../styles';
 
 export const articleCardStyles = createUseStyles({
   container: {
@@ -24,6 +24,9 @@ export const articleCardStyles = createUseStyles({
     overflow: 'hidden',
     position: 'relative',
     transition: 'all 100ms ease',
+    [queries.sm]: {
+      marginRight: '0 !important',
+    },
   },
   featuredImage: {
     height: 'calc(100% - 20px)',

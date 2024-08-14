@@ -5,6 +5,7 @@ import { spacing } from '../sizes';
 import { leftSideWidth } from '../variables';
 import { prefersLightMode } from '../../utils/prefersLightMode';
 import { colors } from '../colors';
+import { queries } from '../queries';
 
 export const globalStyles = createUseStyles({
   '@global': {
@@ -49,6 +50,9 @@ export const globalStyles = createUseStyles({
   leftSide: {
     display: 'flex',
     width: leftSideWidth,
+    [queries.sm]: {
+      display: 'none',
+    },
   },
   mainContainer: {
     display: 'flex',

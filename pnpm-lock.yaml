@@ -14,6 +14,9 @@ importers:
       '@faceless-ui/slider':
         specifier: ^1.1.17
         version: 1.1.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@faceless-ui/window-info':
+        specifier: ^2.1.2
+        version: 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@lexical/list':
         specifier: ^0.17.0
         version: 0.17.0
@@ -586,6 +589,12 @@ packages:
 
   '@faceless-ui/window-info@2.1.1':
     resolution: {integrity: sha512-gMAgda7beR4CNpBIXjgRVn97ek0LG3PAj9lxmoYdg574IEzLFZAh3eAYtTaS2XLKgb4+IHhsuBzlGmHbeOo2Aw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@faceless-ui/window-info@2.1.2':
+    resolution: {integrity: sha512-IvZM6mLWFRin904180115Y6BgsvAN9M5uCMJEHhiQgTgzDMiYVtUww7GlWRsvemubMRF6c9Q+j79qW7uPPuMBg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5738,6 +5747,11 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@faceless-ui/window-info@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@floating-ui/core@1.6.7':
     dependencies:
       '@floating-ui/utils': 0.2.7
@@ -6377,12 +6391,12 @@ snapshots:
       '@lexical/utils': 0.13.1(lexical@0.13.1)
       lexical: 0.13.1
 
-  '@lexical/markdown@0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(lexical@0.13.1)':
+  '@lexical/markdown@0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(lexical@0.13.1)':
     dependencies:
       '@lexical/code': 0.13.1(lexical@0.13.1)
       '@lexical/link': 0.13.1(lexical@0.13.1)
       '@lexical/list': 0.13.1(lexical@0.13.1)
-      '@lexical/rich-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
+      '@lexical/rich-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
       '@lexical/text': 0.13.1(lexical@0.13.1)
       '@lexical/utils': 0.13.1(lexical@0.13.1)
       lexical: 0.13.1
@@ -6415,10 +6429,10 @@ snapshots:
       '@lexical/link': 0.13.1(lexical@0.13.1)
       '@lexical/list': 0.13.1(lexical@0.13.1)
       '@lexical/mark': 0.13.1(lexical@0.13.1)
-      '@lexical/markdown': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(lexical@0.13.1)
+      '@lexical/markdown': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(lexical@0.13.1)
       '@lexical/overflow': 0.13.1(lexical@0.13.1)
       '@lexical/plain-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
-      '@lexical/rich-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
+      '@lexical/rich-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
       '@lexical/selection': 0.13.1(lexical@0.13.1)
       '@lexical/table': 0.13.1(lexical@0.13.1)
       '@lexical/text': 0.13.1(lexical@0.13.1)
@@ -6431,7 +6445,7 @@ snapshots:
     transitivePeerDependencies:
       - yjs
 
-  '@lexical/rich-text@0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)':
+  '@lexical/rich-text@0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)':
     dependencies:
       '@lexical/clipboard': 0.13.1(lexical@0.13.1)
       '@lexical/selection': 0.13.1(lexical@0.13.1)
@@ -6547,9 +6561,9 @@ snapshots:
       '@lexical/link': 0.13.1(lexical@0.13.1)
       '@lexical/list': 0.13.1(lexical@0.13.1)
       '@lexical/mark': 0.13.1(lexical@0.13.1)
-      '@lexical/markdown': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(lexical@0.13.1)
+      '@lexical/markdown': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(lexical@0.13.1)
       '@lexical/react': 0.13.1(lexical@0.13.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yjs@13.6.18)
-      '@lexical/rich-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.13.1))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
+      '@lexical/rich-text': 0.13.1(@lexical/clipboard@0.13.1(lexical@0.17.0))(@lexical/selection@0.13.1(lexical@0.13.1))(@lexical/utils@0.13.1(lexical@0.13.1))(lexical@0.13.1)
       '@lexical/selection': 0.13.1(lexical@0.13.1)
       '@lexical/utils': 0.13.1(lexical@0.13.1)
       bson-objectid: 2.0.4
