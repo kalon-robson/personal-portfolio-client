@@ -3,6 +3,7 @@ import { pageHeaderStyles } from './styles';
 // eslint-disable-next-line camelcase
 import { Page_Header } from '../../graphql/generated/schema';
 import { RichText } from '../../components';
+import { Container } from '../../components/layouts';
 
 interface Props {
   title: string;
@@ -17,7 +18,7 @@ export const PageHeader: React.FC<Props> = ({
   const styles = pageHeaderStyles();
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <h1>
         {title.split('\\n').map((line, index) => (
           <React.Fragment key={index}>
@@ -30,6 +31,6 @@ export const PageHeader: React.FC<Props> = ({
         className={styles.description}
         content={header?.description}
       />
-    </div>
+    </Container>
   );
 };

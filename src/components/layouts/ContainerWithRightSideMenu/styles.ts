@@ -8,7 +8,6 @@ export const containerWithRightSideMenuStyles = createUseStyles({
   },
   leftContainer: {
     maxWidth: base(50),
-    padding: `0 ${spacing.medium}`,
   },
   rightContainer: {
     borderLeft: `1px solid ${colors.quartz}`,

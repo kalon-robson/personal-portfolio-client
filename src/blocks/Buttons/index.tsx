@@ -2,6 +2,7 @@ import React from 'react';
 import { Buttons } from '../../graphql/generated/schema';
 import { buttonsComponentStyles } from './styles';
 import { AppButton, AppLink } from '../../components';
+import { Container } from '../../components/layouts';
 
 export const ButtonsComponent: React.FC<Buttons> = ({
   buttons,
@@ -9,7 +10,7 @@ export const ButtonsComponent: React.FC<Buttons> = ({
   const styles = buttonsComponentStyles();
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       {buttons?.map((button) => (
         <AppLink
           link={button.link}
@@ -22,6 +23,6 @@ export const ButtonsComponent: React.FC<Buttons> = ({
           </AppButton>
         </AppLink>
       ))}
-    </div>
+    </Container>
   );
 };

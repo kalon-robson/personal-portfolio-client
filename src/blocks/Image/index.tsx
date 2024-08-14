@@ -2,6 +2,7 @@ import React from 'react';
 import NextImage from 'next/image';
 import { sizes } from './sizes';
 import { ImageBlockFragmentFragment } from '../../graphql/generated/schema';
+import { Container } from '../../components/layouts';
 
 export const ImageComponent: React.FC<ImageBlockFragmentFragment> = ({
   image,
@@ -12,7 +13,7 @@ export const ImageComponent: React.FC<ImageBlockFragmentFragment> = ({
       .join(', ');
 
     return (
-      <div>
+      <Container>
         <NextImage
           src={image.url ?? ''}
           alt={image.alt}
@@ -21,7 +22,7 @@ export const ImageComponent: React.FC<ImageBlockFragmentFragment> = ({
           height={image.height ?? 0}
           sizes={sizesToUse}
         />
-      </div>
+      </Container>
     );
   }
 
