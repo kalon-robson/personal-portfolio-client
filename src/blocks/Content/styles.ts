@@ -1,11 +1,8 @@
 import { createUseStyles } from 'react-jss';
 import { spacing } from '../../styles';
 
-export const buttonsComponentStyles = createUseStyles({
+export const contentComponentStyles = createUseStyles({
   container: {
-    '& $button:not(:last-child)': {
-      marginRight: spacing.small,
-    },
     marginBottom: `${spacing.medium} !important`,
   },
 });

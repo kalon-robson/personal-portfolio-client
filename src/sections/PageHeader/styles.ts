@@ -3,12 +3,12 @@ import { h5, spacing } from '../../styles';
 
 export const pageHeaderStyles = createUseStyles({
   container: {
-    marginBottom: spacing.large,
+    marginBottom: spacing.medium,
     paddingTop: spacing.medium,
   },
   description: {
-    '& p': {
-      fontSize: h5.fontSize,
+    '& *': {
+      fontSize: `${h5.fontSize} !important`,
     },
   },
 });

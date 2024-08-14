@@ -14,10 +14,10 @@ export const ButtonsComponent: React.FC<Buttons> = ({
       {buttons?.map((button) => (
         <AppLink
           link={button.link}
+          key={button.id}
         >
           <AppButton
             htmlElement="span"
-            key={button.id}
           >
             {button.link?.label}
           </AppButton>
