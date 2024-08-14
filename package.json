@@ -1,10 +1,10 @@
 {
-  "name": "website-next-boilerplate",
+  "name": "personal-portfolio-client",
   "version": "0.0.0",
-  "description": "A boilerplate for a website using Payload CMS and Next.js",
-  "repository": "git@github.com:innovixx/website-next-boilerplate.git",
-  "author": "Innovixx <support@innovixx.co.uk>",
-  "license": "MIT",
+  "description": "personal-portfolio-client",
+  "repository": "git@github.com:kalon-robson/personal-portfolio-client.git",
+  "author": "Kalon Robson",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "dev": "next dev",
