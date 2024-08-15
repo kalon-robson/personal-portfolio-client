@@ -12,6 +12,9 @@ export const appButtonStyles = createUseStyles({
     },
   },
   button: {
+    '& *': {
+      color: 'inherit',
+    },
     '&:disabled': {
       cursor: 'not-allowed',
       opacity: 0.7,
@@ -21,9 +24,9 @@ export const appButtonStyles = createUseStyles({
     },
     all: 'unset',
     border: '1px solid transparent',
+    color: colors.gray,
     cursor: 'pointer',
     display: 'inline-flex',
-
   },
   buttonLoading: {
     cursor: 'not-allowed',
@@ -39,8 +42,12 @@ export const appButtonStyles = createUseStyles({
 
   },
   link: {
+    '&:hover': {
+      color: colors.white,
+    },
     borderRadius: 0,
     padding: 0,
+    transition: 'color 300ms',
   },
   loadingIcon: {
     alignItems: 'center',

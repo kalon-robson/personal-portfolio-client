@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { leftSideMenuStyles } from './styles';
 import { Logo } from '../../components/graphics';
 import { prefersLightMode } from '../../utils/prefersLightMode';
@@ -10,10 +11,12 @@ export const LeftSideMenu: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <Logo
-        width={50}
-        color={prefersLightMode() ? colors.dark : colors.light}
-      />
+      <Link href="/">
+        <Logo
+          width={50}
+          color={prefersLightMode() ? colors.dark : colors.light}
+        />
+      </Link>
     </div>
   );
 };

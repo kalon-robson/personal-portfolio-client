@@ -85,7 +85,7 @@ export const h5 = {
 
 export const body = {
   ...defaultType,
-  color: prefersLightMode() ? colors.dark : '#939393',
+  color: prefersLightMode() ? colors.dark : colors.gray,
   fontSize: base(0.8),
   fontWeight: 400,
   lineHeight: base(0.8 * 1.25),
