@@ -3,12 +3,13 @@ import type { AppProps } from 'next/app';
 import { globalStyles } from '../styles';
 import { LeftSideMenu } from '../sections/LeftSideMenu';
 import { FontHead } from '../components';
+import { FacelessContainerWithProviders } from '../providers/FacelessProviders';
 
 export default ({ Component, pageProps }: AppProps) => {
   const styles = globalStyles();
 
   return (
-    <React.Fragment>
+    <FacelessContainerWithProviders>
       <FontHead />
       <div className={styles.appContainer}>
         <div className={styles.leftSide}>
@@ -18,6 +19,6 @@ export default ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} />
         </main>
       </div>
-    </React.Fragment>
+    </FacelessContainerWithProviders>
   );
 };

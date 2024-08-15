@@ -41,6 +41,9 @@ export const globalStyles = createUseStyles({
     span: {
       ...body,
     },
+    strong: {
+      fontWeight: 700,
+    },
   },
   appContainer: {
     background: `linear-gradient(${prefersLightMode() ? colors.light : colors.dark}, ${prefersLightMode() ? colors.light : '#101010'})`,

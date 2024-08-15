@@ -6,3 +6,4 @@ export * from './queries';
 export * from './sizes';
 export * from './types';
 export * from './variables';
+export * from './zIndex';

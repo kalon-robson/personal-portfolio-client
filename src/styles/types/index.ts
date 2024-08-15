@@ -2,6 +2,7 @@ import { prefersLightMode } from '../../utils/prefersLightMode';
 import { base } from '../base';
 import { colors } from '../colors';
 import { queries } from '../queries';
+import { spacing } from '../sizes';
 
 export const defaultType = {
   fontFamily: 'Poppins, system-ui, Segoe UI, Helvetica Neue, Arial',
@@ -19,12 +20,15 @@ const heading = {
   },
   color: prefersLightMode() ? colors.dark : colors.light,
   fontWeight: 700,
+  margin: 0,
 };
 
 export const h1 = {
   ...heading,
   fontSize: base(3),
   lineHeight: base(3 * 1.10),
+
+  marginBottom: spacing.small,
 
   [queries.md]: {
     fontSize: base(2.15),
@@ -37,6 +41,8 @@ export const h2 = {
   ...heading,
   fontSize: base(3),
   lineHeight: base(3 * 1.10),
+
+  marginBottom: spacing.xSmall,
 
   [queries.md]: {
     fontSize: base(2.15),
@@ -54,6 +60,8 @@ export const h3 = {
   fontSize: base(2.25),
   lineHeight: base(2.25 * 1.25),
 
+  marginBottom: spacing.xSmall,
+
   [queries.md]: {
     fontSize: base(1.6),
     lineHeight: base(1.6 * 1.25),
@@ -65,6 +73,8 @@ export const h4 = {
   fontSize: base(1.6),
   fontWeight: 400,
   lineHeight: base(1.6 * 1.25),
+
+  marginBottom: spacing.xSmall,
 
   [queries.md]: {
     fontSize: base(1.15),
