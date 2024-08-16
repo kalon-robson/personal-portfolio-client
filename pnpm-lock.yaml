@@ -44,6 +44,9 @@ importers:
       escape-html:
         specifier: ^1.0.3
         version: 1.0.3
+      eventemitter3:
+        specifier: ^5.0.1
+        version: 5.0.1
       graphql:
         specifier: ^16.9.0
         version: 16.9.0

@@ -28,6 +28,7 @@
     "color": "^4.2.3",
     "dotenv": "^16.4.5",
     "escape-html": "^1.0.3",
+    "eventemitter3": "^5.0.1",
     "graphql": "^16.9.0",
     "graphql-request": "^6.1.0",
     "graphql-tag": "^2.12.6",

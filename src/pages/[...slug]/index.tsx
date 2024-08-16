@@ -28,13 +28,19 @@ const Home: React.FC<Props> = ({
         xl: `(max-width: ${breakpoints.xl}px)`,
       }}
     >
-      <ContainerWithRightSideMenu>
+      <ContainerWithRightSideMenu
+        navLinks={page.layout?.blocks?.filter((block) => block.blockName)?.map((block) => ({
+          path: block.blockName || '',
+          title: block.blockName || '',
+        })) || []}
+      >
         <PageHeader
           title={page.title}
           header={page.header}
         />
         <RenderBlocks
           blocks={page.layout?.blocks || []}
+          addIdLinks
         />
       </ContainerWithRightSideMenu>
     </WindowInfoProvider>
