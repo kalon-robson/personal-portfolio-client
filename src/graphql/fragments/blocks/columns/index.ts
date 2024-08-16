@@ -6,7 +6,7 @@ export const COLUMNS_BLOCK = gql`
     columns {
       id
       columnWidth
-      block {
+      blocks {
         ...ContentBlockFragment
       }
     }
