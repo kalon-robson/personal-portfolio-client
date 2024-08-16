@@ -2,15 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import * as components from '../../blocks';
 import { toPascalCase } from '../../utils/changeCase';
 import { eventEmitter } from '../../lib/eventEmitter';
+import { SharedBlockType } from '../../blocks/types';
 
-type Props = {
+type Props = SharedBlockType & {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   blocks: any[];
   addIdLinks?: boolean;
   className?: string;
 };
 
-export const RenderBlocks: React.FC<Props> = ({ blocks, className, addIdLinks }) => {
+export const RenderBlocks: React.FC<Props> = ({ blocks, className, addIdLinks, ...rest }) => {
   const blockRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -47,8 +48,12 @@ export const RenderBlocks: React.FC<Props> = ({ blocks, className, addIdLinks })
               key={i}
               ref={(ref) => { blockRefs.current[i] = ref; }}
               {...(addIdLinks && { id: toPascalCase(block.blockName).toLowerCase() })}
+
             >
-              <Block {...block} />
+              <Block
+                {...block}
+                {...rest}
+              />
             </section>
           );
         }

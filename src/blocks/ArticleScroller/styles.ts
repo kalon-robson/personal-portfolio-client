@@ -15,7 +15,7 @@ export const articleScrollerComponentStyles = createUseStyles({
     },
   },
   container: {
-    marginBottom: `${spacing.large} !important`,
+    marginBottom: spacing.large,
   },
   labelContainer: {
     display: 'flex',

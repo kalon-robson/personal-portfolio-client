@@ -40,7 +40,10 @@ export const ColumnsComponent: React.FC<Columns> = ({
             >
               {
                 column.blocks && (
-                  <RenderBlocks blocks={column.blocks} />
+                  <RenderBlocks
+                    blocks={column.blocks}
+                    noBottomMargin
+                  />
                 )
               }
             </Cell>

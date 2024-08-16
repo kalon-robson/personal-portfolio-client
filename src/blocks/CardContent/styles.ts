@@ -6,7 +6,10 @@ export const cardContentComponentStyles = createUseStyles({
     background: '#1e1e1e',
     border: `1px solid ${colors.quartz}`,
     borderRadius: spacing.xSmall,
-    marginBottom: `${spacing.large} !important`,
+    marginBottom: spacing.large,
     padding: spacing.medium,
+  },
+  noBottomMargin: {
+    marginBottom: '0 !important',
   },
 });
