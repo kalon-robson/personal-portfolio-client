@@ -10,9 +10,11 @@ export type ArticleScrollerBlockFragmentFragment = { __typename?: 'ArticleScroll
 
 export type ButtonsBlockFragmentFragment = { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null };
 
+export type CardContentBlockFragmentFragment = { __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
+
 export type CardListBlockFragmentFragment = { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null };
 
-export type ColumnsBlockFragmentFragment = { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null };
+export type ColumnsBlockFragmentFragment = { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null };
 
 export type ContentBlockFragmentFragment = { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
 
@@ -58,7 +60,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', Pages?: { __typename?: 'Pages', docs?: Array<{ __typename?: 'Page', id?: string | null, title: string, slug?: string | null, showSideNavigation?: boolean | null, updatedAt?: any | null, createdAt?: any | null, header?: { __typename?: 'Page_Header', description: any } | null, layout?: { __typename?: 'Page_Layout', blocks?: Array<{ __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null } | { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null } | { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null } | { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null } | null> | null } | null };
+export type PageQuery = { __typename?: 'Query', Pages?: { __typename?: 'Pages', docs?: Array<{ __typename?: 'Page', id?: string | null, title: string, slug?: string | null, showSideNavigation?: boolean | null, updatedAt?: any | null, createdAt?: any | null, header?: { __typename?: 'Page_Header', description: any } | null, layout?: { __typename?: 'Page_Layout', blocks?: Array<{ __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null } | { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null } | { __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null } | { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null } | null> | null } | null };
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -1633,6 +1635,19 @@ export type Buttons_Buttons = {
   link?: Maybe<Link>;
 };
 
+export type CardContent = {
+  __typename?: 'CardContent';
+  blockName?: Maybe<Scalars['String']>;
+  blockType?: Maybe<Scalars['String']>;
+  content?: Maybe<Scalars['JSON']>;
+  id?: Maybe<Scalars['String']>;
+};
+
+
+export type CardContentContentArgs = {
+  depth?: InputMaybe<Scalars['Int']>;
+};
+
 export type CardList = {
   __typename?: 'CardList';
   blockName?: Maybe<Scalars['String']>;
@@ -1669,7 +1684,7 @@ export type Columns_Columns = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type Columns_Columns_Blocks = Content;
+export type Columns_Columns_Blocks = CardContent | Content;
 
 export enum Columns_Columns_ColumnWidth {
   Full = 'full',
@@ -4688,7 +4703,7 @@ export type Page_Layout = {
   blocks?: Maybe<Array<Page_Layout_Blocks>>;
 };
 
-export type Page_Layout_Blocks = ArticleScroller | Buttons | CardList | Columns | Content | IconsRow | Image;
+export type Page_Layout_Blocks = ArticleScroller | Buttons | CardContent | CardList | Columns | Content | IconsRow | Image;
 
 export type Page_CreatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
@@ -6490,6 +6505,14 @@ export const ContentBlockFragmentFragmentDoc = gql`
   blockType
 }
     `;
+export const CardContentBlockFragmentFragmentDoc = gql`
+    fragment CardContentBlockFragment on CardContent {
+  content
+  id
+  blockName
+  blockType
+}
+    `;
 export const ColumnsBlockFragmentFragmentDoc = gql`
     fragment ColumnsBlockFragment on Columns {
   columns {
@@ -6497,13 +6520,15 @@ export const ColumnsBlockFragmentFragmentDoc = gql`
     columnWidth
     blocks {
       ...ContentBlockFragment
+      ...CardContentBlockFragment
     }
   }
   id
   blockName
   blockType
 }
-    ${ContentBlockFragmentFragmentDoc}`;
+    ${ContentBlockFragmentFragmentDoc}
+${CardContentBlockFragmentFragmentDoc}`;
 export const IconsRowBlockFragmentFragmentDoc = gql`
     fragment IconsRowBlockFragment on IconsRow {
   icons {
@@ -6663,6 +6688,7 @@ export const PageDocument = gql`
           ...CardListBlockFragment
           ...IconsRowBlockFragment
           ...ColumnsBlockFragment
+          ...CardContentBlockFragment
         }
       }
     }
@@ -6674,7 +6700,8 @@ ${ButtonsBlockFragmentFragmentDoc}
 ${ArticleScrollerBlockFragmentFragmentDoc}
 ${CardListBlockFragmentFragmentDoc}
 ${IconsRowBlockFragmentFragmentDoc}
-${ColumnsBlockFragmentFragmentDoc}`;
+${ColumnsBlockFragmentFragmentDoc}
+${CardContentBlockFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 

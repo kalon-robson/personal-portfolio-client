@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-import { ARTICLE_SCROLLER_BLOCK, BUTTONS_BLOCK, CARD_LIST_BLOCK, COLUMNS_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
+import { ARTICLE_SCROLLER_BLOCK, BUTTONS_BLOCK, CARD_CONTENT_BLOCK, CARD_LIST_BLOCK, COLUMNS_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
 import { ICONS_ROW_BLOCK } from '../../fragments/blocks/iconsRow';
 
 export const PAGES = gql`
@@ -52,6 +52,7 @@ export const PAGE = gql`
             ...CardListBlockFragment
             ...IconsRowBlockFragment
             ...ColumnsBlockFragment
+            ...CardContentBlockFragment
           }
         }
       }
@@ -64,4 +65,5 @@ export const PAGE = gql`
   ${CARD_LIST_BLOCK}
   ${ICONS_ROW_BLOCK}
   ${COLUMNS_BLOCK}
+  ${CARD_CONTENT_BLOCK}
 `;

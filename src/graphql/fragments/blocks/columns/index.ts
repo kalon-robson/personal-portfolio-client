@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { CONTENT_BLOCK } from '../content';
+import { CARD_CONTENT_BLOCK } from '../cardContent';
 
 export const COLUMNS_BLOCK = gql`
   fragment ColumnsBlockFragment on Columns {
@@ -8,6 +9,7 @@ export const COLUMNS_BLOCK = gql`
       columnWidth
       blocks {
         ...ContentBlockFragment
+        ...CardContentBlockFragment
       }
     }
     id
@@ -15,4 +17,5 @@ export const COLUMNS_BLOCK = gql`
     blockType
   }
   ${CONTENT_BLOCK}
+  ${CARD_CONTENT_BLOCK}
 `;

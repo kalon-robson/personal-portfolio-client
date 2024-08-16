@@ -12,8 +12,15 @@ const colStyles = {
   half: {
     cols: 6,
   },
+  quarter: {
+    cols: 3,
+
+  },
   third: {
     cols: 4,
+  },
+  twoThirds: {
+    cols: 8,
   },
 };
 
