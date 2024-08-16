@@ -7,6 +7,7 @@ interface Props {
   className?: string;
   size?: number;
   fill?: string;
+  title?: string;
 }
 
 export const Icon: React.FC<Props> = ({
@@ -14,10 +15,12 @@ export const Icon: React.FC<Props> = ({
   size = 20,
   icon,
   fill,
+  title,
 }) => {
   const [svgDoc, setSvgDoc] = useState<Document | null>(null);
 
   const svg = icons[icon];
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -29,6 +32,9 @@ export const Icon: React.FC<Props> = ({
   if (!svgDoc) return null;
 
   const svgElement = svgDoc.getElementsByTagName('svg')[0];
+
+  if (!svgElement) return null;
+
   const viewBox = svgElement?.getAttribute('viewBox')?.split(' ');
 
   const width = viewBox ? parseInt(viewBox[2], 10) : 0;
@@ -47,14 +53,16 @@ export const Icon: React.FC<Props> = ({
   svgElement.setAttribute('width', svgWidth.toString());
   svgElement.setAttribute('height', svgHeight.toString());
   svgElement.setAttribute('className', className || '');
-  svgElement.setAttribute('fill', fill || 'currentColor');
+  if (fill !== 'doNotFill') {
+    svgElement.setAttribute('fill', fill || 'currentColor');
+  }
   svgElement.setAttribute('aria-hidden', 'true');
   svgElement.setAttribute('focusable', 'false');
   svgElement.setAttribute('role', 'img');
   return (
     <React.Fragment>
-
       <span
+        title={title}
         dangerouslySetInnerHTML={{ __html: svgElement.outerHTML }}
         className={className}
         style={{
