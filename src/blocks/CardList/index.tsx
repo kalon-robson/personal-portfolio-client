@@ -7,13 +7,20 @@ import { Card } from './components';
 export const CardListComponent: React.FC<CardList> = ({
   cards,
 }) => {
+  const [activeCardIndex, setActiveCardIndex] = React.useState<number>(0);
   const styles = cardListComponentStyles();
 
   return (
     <Container className={styles.container}>
-      {cards?.map((card) => (
+      {cards?.map((card, index) => (
         <Card
           card={card}
+          setIsActive={(isActive) => {
+            if (isActive) {
+              setActiveCardIndex(index);
+            }
+          }}
+          isActive={activeCardIndex === index}
         />
       ))}
     </Container>

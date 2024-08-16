@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Cell, Grid } from '@faceless-ui/css-grid';
 import { cardStyles } from './styles';
 // eslint-disable-next-line camelcase
@@ -10,15 +10,24 @@ import { constructClassName } from '../../../../utils/constructClassName';
 interface Props {
   // eslint-disable-next-line camelcase
   card: CardList_Cards;
+  isActive: boolean;
+  setIsActive: (isActive: boolean) => void;
 }
 
 export const Card: React.FC<Props> = ({
   card,
+  isActive,
+  setIsActive,
 }) => {
   const [setNode, entry] = useIntersect({
-    rootMargin: '-150px',
     threshold: 1,
   });
+
+  useEffect(() => {
+    if (entry?.isIntersecting) {
+      setIsActive(true);
+    }
+  }, [entry, setIsActive]);
 
   const styles = cardStyles();
 
@@ -27,7 +36,7 @@ export const Card: React.FC<Props> = ({
       ref={setNode}
       className={constructClassName([
         styles.cardContainer,
-        entry?.isIntersecting && styles.activeCardContainer,
+        isActive && entry?.isIntersecting && styles.activeCardContainer,
       ])}
       key={card.id}
     >
