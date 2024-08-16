@@ -14,6 +14,7 @@ export const CardListComponent: React.FC<CardList> = ({
     <Container className={styles.container}>
       {cards?.map((card, index) => (
         <Card
+          key={index}
           card={card}
           setIsActive={(isActive) => {
             if (isActive) {

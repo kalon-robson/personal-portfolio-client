@@ -13,8 +13,9 @@ export const IconsRowComponent: React.FC<IconsRow> = ({
   return (
     <Container className={styles.container}>
       <div className={styles.iconsRowContainer}>
-        {icons?.map(({ icon }) => (
+        {icons?.map(({ icon }, index) => (
           <Icon
+            key={index}
             icon={icon as IconType}
             size={50}
             fill="doNotFill"

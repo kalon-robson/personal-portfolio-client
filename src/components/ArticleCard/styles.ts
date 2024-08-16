@@ -51,9 +51,9 @@ export const articleCardStyles = createUseStyles({
   },
   title: {
     ...h5,
-    bottom: spacing.xSmall,
+    bottom: spacing.medium,
     fontWeight: 700,
-    left: spacing.small,
+    left: spacing.medium,
     maxWidth: '80%',
     position: 'absolute',
     transition: 'all 300ms ease',

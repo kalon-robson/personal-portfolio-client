@@ -15,6 +15,9 @@ export const globalStyles = createUseStyles({
       flexDirection: 'column',
       height: '100%',
     },
+    a: {
+      ...body,
+    },
     div: {
       fontWeight: 300,
     },
