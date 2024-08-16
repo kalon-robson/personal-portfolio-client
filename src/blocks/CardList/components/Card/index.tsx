@@ -4,7 +4,7 @@ import { cardStyles } from './styles';
 // eslint-disable-next-line camelcase
 import { CardList_Cards } from '../../../../graphql/generated/schema';
 import { RichText } from '../../../../components';
-import useIntersect from '../../../../hooks/useIntersect';
+
 import { constructClassName } from '../../../../utils/constructClassName';
 
 interface Props {
@@ -19,24 +19,32 @@ export const Card: React.FC<Props> = ({
   isActive,
   setIsActive,
 }) => {
-  const [setNode, entry] = useIntersect({
-    threshold: 1,
-  });
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (entry?.isIntersecting) {
-      setIsActive(true);
-    }
-  }, [entry, setIsActive]);
+    const handleScroll = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const middle = window.innerHeight / 2;
+        if (rect.top <= middle && rect.bottom >= middle) {
+          setIsActive(true);
+        } else {
+          setIsActive(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  }, [setIsActive]);
 
   const styles = cardStyles();
 
   return (
     <div
-      ref={setNode}
+      ref={containerRef}
       className={constructClassName([
         styles.cardContainer,
-        isActive && entry?.isIntersecting && styles.activeCardContainer,
+        isActive && styles.activeCardContainer,
       ])}
       key={card.id}
     >
