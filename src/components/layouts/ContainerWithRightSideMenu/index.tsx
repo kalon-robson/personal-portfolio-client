@@ -4,6 +4,8 @@ import { containerWithRightSideMenuStyles } from './styles';
 import { toPascalCase } from '../../../utils/changeCase';
 import { constructClassName } from '../../../utils/constructClassName';
 import { eventEmitter } from '../../../lib/eventEmitter';
+import { Icon } from '../../Icon';
+import { colors } from '../../../styles';
 
 interface Props {
   children: React.ReactNode;
@@ -18,11 +20,13 @@ export const ContainerWithRightSideMenu: React.FC<Props> = ({
   navLinks,
 }) => {
   const [activeBlock, setActiveBlock] = useState<string>('');
+  const [activeLinkIndex, setActiveLinkIndex] = useState<number>(0);
 
   // listen to event emitter
   useEffect(() => {
     const handleBlockIntersect = (id: string) => {
       setActiveBlock(id);
+      setActiveLinkIndex(navLinks?.findIndex((link) => toPascalCase(link.path).toLowerCase() === id) || 0);
     };
 
     eventEmitter.on('blockIntersect', handleBlockIntersect);
@@ -30,7 +34,7 @@ export const ContainerWithRightSideMenu: React.FC<Props> = ({
     return () => {
       eventEmitter.off('blockIntersect', handleBlockIntersect);
     };
-  }, []);
+  }, [navLinks]);
 
   const styles = containerWithRightSideMenuStyles();
 
@@ -59,6 +63,17 @@ export const ContainerWithRightSideMenu: React.FC<Props> = ({
               </Link>
             ))
           }
+          <div
+            className={styles.floatingIcon}
+            style={{ transform: `translateY(${(activeLinkIndex) * 71}px)` }}
+          >
+            <Icon
+              fill={colors.white}
+              size={30}
+              className={styles.floatingIconIcon}
+              icon="codeClassicRegularRotated90"
+            />
+          </div>
         </div>
       </div>
     </div>

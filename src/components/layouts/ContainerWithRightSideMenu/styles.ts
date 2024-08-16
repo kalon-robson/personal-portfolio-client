@@ -15,11 +15,28 @@ export const containerWithRightSideMenuStyles = createUseStyles({
     display: 'flex',
     flex: 1,
   },
+  floatingIcon: {
+    alignItems: 'center',
+    borderRight: `2px solid ${colors.white}`,
+    display: 'flex',
+    height: base(2),
+    justifyContent: 'center',
+    left: base(-3.75),
+    paddingRight: base(0.2),
+    position: 'absolute',
+    top: base(1.5),
+    transition: 'all 300ms ease',
+    zIndex: 10000,
+  },
+  floatingIconIcon: {
+    transform: 'rotate(90deg)',
+  },
   leftContainer: {
     maxWidth: base(50),
   },
   link: {
     ...h5,
+
     '&:hover': {
       '& $linkCount': {
         color: `${colors.white} !important`,
@@ -29,10 +46,16 @@ export const containerWithRightSideMenuStyles = createUseStyles({
       textShadow: `0 0 10px ${colors.light} !important`,
       transition: 'all 300ms ease',
     },
+
     fontWeight: 400,
+
     marginBottom: spacing.small,
+
     textDecoration: 'none',
+
     transition: 'all 300ms ease-out',
+    // no word wrap
+    whiteSpace: 'nowrap',
   },
   linkCount: {
     color: `${colors.quartz} !important`,
