@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { pageHeaderStyles } from './styles';
 // eslint-disable-next-line camelcase
 import { Article_Header, Page_Header } from '../../graphql/generated/schema';
@@ -17,7 +17,21 @@ export const PageHeader: React.FC<Props> = ({
   header,
   displayGoBackButton,
 }) => {
+  const [greeting, setGreeting] = useState<string>('');
   const styles = pageHeaderStyles();
+
+  useEffect(() => {
+    const date = new Date();
+    const hour = date.getHours();
+
+    if (hour < 12) {
+      setGreeting('Good morning');
+    } else if (hour < 18) {
+      setGreeting('Good afternoon');
+    } else {
+      setGreeting('Good evening');
+    }
+  }, []);
 
   return (
     <Container className={styles.container}>
@@ -33,7 +47,7 @@ export const PageHeader: React.FC<Props> = ({
         )
       }
       <h1>
-        {title.split('\\n').map((line, index) => (
+        {title.replace('{{GREETING}}', greeting).split('\\n').map((line, index) => (
           <React.Fragment key={index}>
             {line}
             <br />
