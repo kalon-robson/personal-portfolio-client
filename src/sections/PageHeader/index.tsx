@@ -25,11 +25,11 @@ export const PageHeader: React.FC<Props> = ({
     const hour = date.getHours();
 
     if (hour < 12) {
-      setGreeting('Good morning');
+      setGreeting('Good Morning');
     } else if (hour < 18) {
-      setGreeting('Good afternoon');
+      setGreeting('Good Afternoon');
     } else {
-      setGreeting('Good evening');
+      setGreeting('Good Evening');
     }
   }, []);
 
