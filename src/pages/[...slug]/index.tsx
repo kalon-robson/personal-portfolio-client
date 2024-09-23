@@ -2,7 +2,7 @@ import React from 'react';
 import type { GetServerSideProps } from 'next';
 import { WindowInfoProvider } from '@faceless-ui/window-info';
 import { Page } from '../../graphql/generated/schema';
-import { RenderBlocks } from '../../components';
+import { Head, RenderBlocks } from '../../components';
 import { cmsClient } from '../../graphql';
 import { ContainerWithRightSideMenu } from '../../components/layouts/ContainerWithRightSideMenu';
 import { PageHeader } from '../../sections';
@@ -20,31 +20,37 @@ const Home: React.FC<Props> = ({
   }
 
   return (
-    <WindowInfoProvider
-      breakpoints={{
-        l: `(max-width: ${breakpoints.lg}px)`,
-        m: `(max-width: ${breakpoints.md}px)`,
-        s: `(max-width: ${breakpoints.sm}px)`,
-        xl: `(max-width: ${breakpoints.xl}px)`,
-      }}
-    >
-      <ContainerWithRightSideMenu
-        navLinks={page.layout?.blocks?.filter((block) => block.blockName)?.map((block) => ({
-          path: block.blockName || '',
-          title: block.blockName || '',
-        })) || []}
+    <React.Fragment>
+      <Head
+        title={page.meta?.title || undefined}
+        description={page.meta?.description || undefined}
+        ogImage={page.meta?.image?.sizes?.card?.url || page.meta?.image?.url || undefined}
+      />
+      <WindowInfoProvider
+        breakpoints={{
+          l: `(max-width: ${breakpoints.lg}px)`,
+          m: `(max-width: ${breakpoints.md}px)`,
+          s: `(max-width: ${breakpoints.sm}px)`,
+          xl: `(max-width: ${breakpoints.xl}px)`,
+        }}
       >
-        <PageHeader
-          title={page.title}
-          header={page.header}
-        />
-        <RenderBlocks
-          blocks={page.layout?.blocks || []}
-          addIdLinks
-        />
-      </ContainerWithRightSideMenu>
-    </WindowInfoProvider>
-
+        <ContainerWithRightSideMenu
+          navLinks={page.layout?.blocks?.filter((block) => block.blockName)?.map((block) => ({
+            path: block.blockName || '',
+            title: block.blockName || '',
+          })) || []}
+        >
+          <PageHeader
+            title={page.title}
+            header={page.header}
+          />
+          <RenderBlocks
+            blocks={page.layout?.blocks || []}
+            addIdLinks
+          />
+        </ContainerWithRightSideMenu>
+      </WindowInfoProvider>
+    </React.Fragment>
   );
 };
 

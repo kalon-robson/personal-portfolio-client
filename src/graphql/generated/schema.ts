@@ -26,6 +26,8 @@ export type LinkFieldFragmentFragment = { __typename?: 'Link', type?: Link_Type 
 
 export type MediaFieldFragmentFragment = { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null };
 
+export type MetaFieldFragmentFragment = { __typename?: 'Meta', title?: string | null, description?: string | null, image?: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } | null };
+
 export type ArticlesQueryVariables = Exact<{
   draft?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<Article_Where>;
@@ -43,7 +45,7 @@ export type ArticleQueryVariables = Exact<{
 }>;
 
 
-export type ArticleQuery = { __typename?: 'Query', Articles?: { __typename?: 'Articles', docs?: Array<{ __typename?: 'Article', id?: string | null, title?: string | null, slug?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null, layout?: { __typename?: 'Article_Layout', blocks?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null } | null> | null } | null };
+export type ArticleQuery = { __typename?: 'Query', Articles?: { __typename?: 'Articles', docs?: Array<{ __typename?: 'Article', id?: string | null, title?: string | null, slug?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null, layout?: { __typename?: 'Article_Layout', blocks?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null, meta?: { __typename?: 'Meta', title?: string | null, description?: string | null, image?: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } | null } | null } | null> | null } | null };
 
 export type PagesQueryVariables = Exact<{
   where?: InputMaybe<Page_Where>;
@@ -60,7 +62,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', Pages?: { __typename?: 'Pages', docs?: Array<{ __typename?: 'Page', id?: string | null, title: string, slug?: string | null, showSideNavigation?: boolean | null, updatedAt?: any | null, createdAt?: any | null, header?: { __typename?: 'Page_Header', description: any } | null, layout?: { __typename?: 'Page_Layout', blocks?: Array<{ __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null } | { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null } | { __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null } | { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null } | null> | null } | null };
+export type PageQuery = { __typename?: 'Query', Pages?: { __typename?: 'Pages', docs?: Array<{ __typename?: 'Page', id?: string | null, title: string, slug?: string | null, showSideNavigation?: boolean | null, updatedAt?: any | null, createdAt?: any | null, header?: { __typename?: 'Page_Header', description: any } | null, layout?: { __typename?: 'Page_Layout', blocks?: Array<{ __typename?: 'ArticleScroller', id?: string | null, blockName?: string | null, blockType?: string | null, articles?: Array<{ __typename?: 'Article', id?: string | null, slug?: string | null, title?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null }> | null } | { __typename?: 'Buttons', id?: string | null, blockName?: string | null, blockType?: string | null, buttons?: Array<{ __typename?: 'Buttons_Buttons', id?: string | null, link?: { __typename?: 'Link', type?: Link_Type | null, url?: string | null, label?: string | null, reference?: { __typename?: 'Page', id?: string | null, slug?: string | null } | null } | null }> | null } | { __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null } | { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'IconsRow', id?: string | null, blockName?: string | null, blockType?: string | null, icons?: Array<{ __typename?: 'IconsRow_Icons', id?: string | null, icon?: string | null }> | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null, meta?: { __typename?: 'Meta', title?: string | null, description?: string | null, image?: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } | null } | null } | null> | null } | null };
 
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -92,6 +94,7 @@ export type Article = {
   header?: Maybe<Article_Header>;
   id?: Maybe<Scalars['String']>;
   layout?: Maybe<Article_Layout>;
+  meta?: Maybe<Meta>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -129,6 +132,7 @@ export type ArticleDocAccessFields = {
   createdAt?: Maybe<ArticleDocAccessFields_CreatedAt>;
   description?: Maybe<ArticleDocAccessFields_Description>;
   featuredImage?: Maybe<ArticleDocAccessFields_FeaturedImage>;
+  meta?: Maybe<ArticleDocAccessFields_Meta>;
   publishedAt?: Maybe<ArticleDocAccessFields_PublishedAt>;
   slug?: Maybe<ArticleDocAccessFields_Slug>;
   title?: Maybe<ArticleDocAccessFields_Title>;
@@ -275,6 +279,126 @@ export type ArticleDocAccessFields_FeaturedImage_Update = {
   permission: Scalars['Boolean'];
 };
 
+export type ArticleDocAccessFields_Meta = {
+  __typename?: 'ArticleDocAccessFields_meta';
+  create?: Maybe<ArticleDocAccessFields_Meta_Create>;
+  delete?: Maybe<ArticleDocAccessFields_Meta_Delete>;
+  fields?: Maybe<ArticleDocAccessFields_Meta_Fields>;
+  read?: Maybe<ArticleDocAccessFields_Meta_Read>;
+  update?: Maybe<ArticleDocAccessFields_Meta_Update>;
+};
+
+export type ArticleDocAccessFields_Meta_Create = {
+  __typename?: 'ArticleDocAccessFields_meta_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Delete = {
+  __typename?: 'ArticleDocAccessFields_meta_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Fields = {
+  __typename?: 'ArticleDocAccessFields_meta_Fields';
+  description?: Maybe<ArticleDocAccessFields_Meta_Description>;
+  image?: Maybe<ArticleDocAccessFields_Meta_Image>;
+  title?: Maybe<ArticleDocAccessFields_Meta_Title>;
+};
+
+export type ArticleDocAccessFields_Meta_Read = {
+  __typename?: 'ArticleDocAccessFields_meta_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Update = {
+  __typename?: 'ArticleDocAccessFields_meta_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Description = {
+  __typename?: 'ArticleDocAccessFields_meta_description';
+  create?: Maybe<ArticleDocAccessFields_Meta_Description_Create>;
+  delete?: Maybe<ArticleDocAccessFields_Meta_Description_Delete>;
+  read?: Maybe<ArticleDocAccessFields_Meta_Description_Read>;
+  update?: Maybe<ArticleDocAccessFields_Meta_Description_Update>;
+};
+
+export type ArticleDocAccessFields_Meta_Description_Create = {
+  __typename?: 'ArticleDocAccessFields_meta_description_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Description_Delete = {
+  __typename?: 'ArticleDocAccessFields_meta_description_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Description_Read = {
+  __typename?: 'ArticleDocAccessFields_meta_description_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Description_Update = {
+  __typename?: 'ArticleDocAccessFields_meta_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Image = {
+  __typename?: 'ArticleDocAccessFields_meta_image';
+  create?: Maybe<ArticleDocAccessFields_Meta_Image_Create>;
+  delete?: Maybe<ArticleDocAccessFields_Meta_Image_Delete>;
+  read?: Maybe<ArticleDocAccessFields_Meta_Image_Read>;
+  update?: Maybe<ArticleDocAccessFields_Meta_Image_Update>;
+};
+
+export type ArticleDocAccessFields_Meta_Image_Create = {
+  __typename?: 'ArticleDocAccessFields_meta_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Image_Delete = {
+  __typename?: 'ArticleDocAccessFields_meta_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Image_Read = {
+  __typename?: 'ArticleDocAccessFields_meta_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Image_Update = {
+  __typename?: 'ArticleDocAccessFields_meta_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Title = {
+  __typename?: 'ArticleDocAccessFields_meta_title';
+  create?: Maybe<ArticleDocAccessFields_Meta_Title_Create>;
+  delete?: Maybe<ArticleDocAccessFields_Meta_Title_Delete>;
+  read?: Maybe<ArticleDocAccessFields_Meta_Title_Read>;
+  update?: Maybe<ArticleDocAccessFields_Meta_Title_Update>;
+};
+
+export type ArticleDocAccessFields_Meta_Title_Create = {
+  __typename?: 'ArticleDocAccessFields_meta_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Title_Delete = {
+  __typename?: 'ArticleDocAccessFields_meta_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Title_Read = {
+  __typename?: 'ArticleDocAccessFields_meta_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleDocAccessFields_Meta_Title_Update = {
+  __typename?: 'ArticleDocAccessFields_meta_title_Update';
+  permission: Scalars['Boolean'];
+};
+
 export type ArticleDocAccessFields_PublishedAt = {
   __typename?: 'ArticleDocAccessFields_publishedAt';
   create?: Maybe<ArticleDocAccessFields_PublishedAt_Create>;
@@ -394,6 +518,7 @@ export type ArticleFields = {
   createdAt?: Maybe<ArticleFields_CreatedAt>;
   description?: Maybe<ArticleFields_Description>;
   featuredImage?: Maybe<ArticleFields_FeaturedImage>;
+  meta?: Maybe<ArticleFields_Meta>;
   publishedAt?: Maybe<ArticleFields_PublishedAt>;
   slug?: Maybe<ArticleFields_Slug>;
   title?: Maybe<ArticleFields_Title>;
@@ -537,6 +662,126 @@ export type ArticleFields_FeaturedImage_Read = {
 
 export type ArticleFields_FeaturedImage_Update = {
   __typename?: 'ArticleFields_featuredImage_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta = {
+  __typename?: 'ArticleFields_meta';
+  create?: Maybe<ArticleFields_Meta_Create>;
+  delete?: Maybe<ArticleFields_Meta_Delete>;
+  fields?: Maybe<ArticleFields_Meta_Fields>;
+  read?: Maybe<ArticleFields_Meta_Read>;
+  update?: Maybe<ArticleFields_Meta_Update>;
+};
+
+export type ArticleFields_Meta_Create = {
+  __typename?: 'ArticleFields_meta_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Delete = {
+  __typename?: 'ArticleFields_meta_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Fields = {
+  __typename?: 'ArticleFields_meta_Fields';
+  description?: Maybe<ArticleFields_Meta_Description>;
+  image?: Maybe<ArticleFields_Meta_Image>;
+  title?: Maybe<ArticleFields_Meta_Title>;
+};
+
+export type ArticleFields_Meta_Read = {
+  __typename?: 'ArticleFields_meta_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Update = {
+  __typename?: 'ArticleFields_meta_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Description = {
+  __typename?: 'ArticleFields_meta_description';
+  create?: Maybe<ArticleFields_Meta_Description_Create>;
+  delete?: Maybe<ArticleFields_Meta_Description_Delete>;
+  read?: Maybe<ArticleFields_Meta_Description_Read>;
+  update?: Maybe<ArticleFields_Meta_Description_Update>;
+};
+
+export type ArticleFields_Meta_Description_Create = {
+  __typename?: 'ArticleFields_meta_description_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Description_Delete = {
+  __typename?: 'ArticleFields_meta_description_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Description_Read = {
+  __typename?: 'ArticleFields_meta_description_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Description_Update = {
+  __typename?: 'ArticleFields_meta_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Image = {
+  __typename?: 'ArticleFields_meta_image';
+  create?: Maybe<ArticleFields_Meta_Image_Create>;
+  delete?: Maybe<ArticleFields_Meta_Image_Delete>;
+  read?: Maybe<ArticleFields_Meta_Image_Read>;
+  update?: Maybe<ArticleFields_Meta_Image_Update>;
+};
+
+export type ArticleFields_Meta_Image_Create = {
+  __typename?: 'ArticleFields_meta_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Image_Delete = {
+  __typename?: 'ArticleFields_meta_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Image_Read = {
+  __typename?: 'ArticleFields_meta_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Image_Update = {
+  __typename?: 'ArticleFields_meta_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Title = {
+  __typename?: 'ArticleFields_meta_title';
+  create?: Maybe<ArticleFields_Meta_Title_Create>;
+  delete?: Maybe<ArticleFields_Meta_Title_Delete>;
+  read?: Maybe<ArticleFields_Meta_Title_Read>;
+  update?: Maybe<ArticleFields_Meta_Title_Update>;
+};
+
+export type ArticleFields_Meta_Title_Create = {
+  __typename?: 'ArticleFields_meta_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Title_Delete = {
+  __typename?: 'ArticleFields_meta_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Title_Read = {
+  __typename?: 'ArticleFields_meta_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type ArticleFields_Meta_Title_Update = {
+  __typename?: 'ArticleFields_meta_title_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -727,6 +972,7 @@ export type ArticleVersion_Version = {
   createdAt?: Maybe<Scalars['DateTime']>;
   header?: Maybe<ArticleVersion_Version_Header>;
   layout?: Maybe<ArticleVersion_Version_Layout>;
+  meta?: Maybe<Meta>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -1521,6 +1767,31 @@ export type Article_Id_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type Article_Meta__Description_Operator = {
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type Article_Meta__Image_Operator = {
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type Article_Meta__Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type Article_PublishedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -1572,6 +1843,9 @@ export type Article_Where = {
   header__description?: InputMaybe<Article_Header__Description_Operator>;
   header__featuredImage?: InputMaybe<Article_Header__FeaturedImage_Operator>;
   id?: InputMaybe<Article_Id_Operator>;
+  meta__description?: InputMaybe<Article_Meta__Description_Operator>;
+  meta__image?: InputMaybe<Article_Meta__Image_Operator>;
+  meta__title?: InputMaybe<Article_Meta__Title_Operator>;
   publishedAt?: InputMaybe<Article_PublishedAt_Operator>;
   slug?: InputMaybe<Article_Slug_Operator>;
   title?: InputMaybe<Article_Title_Operator>;
@@ -1586,6 +1860,9 @@ export type Article_Where_And = {
   header__description?: InputMaybe<Article_Header__Description_Operator>;
   header__featuredImage?: InputMaybe<Article_Header__FeaturedImage_Operator>;
   id?: InputMaybe<Article_Id_Operator>;
+  meta__description?: InputMaybe<Article_Meta__Description_Operator>;
+  meta__image?: InputMaybe<Article_Meta__Image_Operator>;
+  meta__title?: InputMaybe<Article_Meta__Title_Operator>;
   publishedAt?: InputMaybe<Article_PublishedAt_Operator>;
   slug?: InputMaybe<Article_Slug_Operator>;
   title?: InputMaybe<Article_Title_Operator>;
@@ -1600,6 +1877,9 @@ export type Article_Where_Or = {
   header__description?: InputMaybe<Article_Header__Description_Operator>;
   header__featuredImage?: InputMaybe<Article_Header__FeaturedImage_Operator>;
   id?: InputMaybe<Article_Id_Operator>;
+  meta__description?: InputMaybe<Article_Meta__Description_Operator>;
+  meta__image?: InputMaybe<Article_Meta__Image_Operator>;
+  meta__title?: InputMaybe<Article_Meta__Title_Operator>;
   publishedAt?: InputMaybe<Article_PublishedAt_Operator>;
   slug?: InputMaybe<Article_Slug_Operator>;
   title?: InputMaybe<Article_Title_Operator>;
@@ -1689,7 +1969,9 @@ export type Columns_Columns_Blocks = CardContent | Content;
 export enum Columns_Columns_ColumnWidth {
   Full = 'full',
   Half = 'half',
-  Third = 'third'
+  Quarter = 'quarter',
+  Third = 'third',
+  TwoThirds = 'twoThirds'
 }
 
 export type Content = {
@@ -4066,6 +4348,357 @@ export type Media_Width_Operator = {
   not_equals?: InputMaybe<Scalars['Float']>;
 };
 
+export type Meta = {
+  __typename?: 'Meta';
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Media>;
+  title?: Maybe<Scalars['String']>;
+};
+
+
+export type MetaImageArgs = {
+  where?: InputMaybe<Meta_Image_Where>;
+};
+
+export type Meta_Image_Alt_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Meta_Image_Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_FocalX_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_FocalY_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Card__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Card__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Sizes__Card__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Sizes__Card__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Card__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Card__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Sizes__Feature__Filename_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Feature__Filesize_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Sizes__Feature__Height_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_Sizes__Feature__MimeType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Feature__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Sizes__Feature__Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
+export type Meta_Image_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['DateTime']>;
+  greater_than_equal?: InputMaybe<Scalars['DateTime']>;
+  less_than?: InputMaybe<Scalars['DateTime']>;
+  less_than_equal?: InputMaybe<Scalars['DateTime']>;
+  like?: InputMaybe<Scalars['DateTime']>;
+  not_equals?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type Meta_Image_Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type Meta_Image_Where = {
+  AND?: InputMaybe<Array<InputMaybe<Meta_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Meta_Image_Where_Or>>>;
+  alt?: InputMaybe<Meta_Image_Alt_Operator>;
+  createdAt?: InputMaybe<Meta_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<Meta_Image_Filename_Operator>;
+  filesize?: InputMaybe<Meta_Image_Filesize_Operator>;
+  focalX?: InputMaybe<Meta_Image_FocalX_Operator>;
+  focalY?: InputMaybe<Meta_Image_FocalY_Operator>;
+  height?: InputMaybe<Meta_Image_Height_Operator>;
+  id?: InputMaybe<Meta_Image_Id_Operator>;
+  mimeType?: InputMaybe<Meta_Image_MimeType_Operator>;
+  sizes__card__filename?: InputMaybe<Meta_Image_Sizes__Card__Filename_Operator>;
+  sizes__card__filesize?: InputMaybe<Meta_Image_Sizes__Card__Filesize_Operator>;
+  sizes__card__height?: InputMaybe<Meta_Image_Sizes__Card__Height_Operator>;
+  sizes__card__mimeType?: InputMaybe<Meta_Image_Sizes__Card__MimeType_Operator>;
+  sizes__card__url?: InputMaybe<Meta_Image_Sizes__Card__Url_Operator>;
+  sizes__card__width?: InputMaybe<Meta_Image_Sizes__Card__Width_Operator>;
+  sizes__feature__filename?: InputMaybe<Meta_Image_Sizes__Feature__Filename_Operator>;
+  sizes__feature__filesize?: InputMaybe<Meta_Image_Sizes__Feature__Filesize_Operator>;
+  sizes__feature__height?: InputMaybe<Meta_Image_Sizes__Feature__Height_Operator>;
+  sizes__feature__mimeType?: InputMaybe<Meta_Image_Sizes__Feature__MimeType_Operator>;
+  sizes__feature__url?: InputMaybe<Meta_Image_Sizes__Feature__Url_Operator>;
+  sizes__feature__width?: InputMaybe<Meta_Image_Sizes__Feature__Width_Operator>;
+  updatedAt?: InputMaybe<Meta_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<Meta_Image_Url_Operator>;
+  width?: InputMaybe<Meta_Image_Width_Operator>;
+};
+
+export type Meta_Image_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<Meta_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Meta_Image_Where_Or>>>;
+  alt?: InputMaybe<Meta_Image_Alt_Operator>;
+  createdAt?: InputMaybe<Meta_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<Meta_Image_Filename_Operator>;
+  filesize?: InputMaybe<Meta_Image_Filesize_Operator>;
+  focalX?: InputMaybe<Meta_Image_FocalX_Operator>;
+  focalY?: InputMaybe<Meta_Image_FocalY_Operator>;
+  height?: InputMaybe<Meta_Image_Height_Operator>;
+  id?: InputMaybe<Meta_Image_Id_Operator>;
+  mimeType?: InputMaybe<Meta_Image_MimeType_Operator>;
+  sizes__card__filename?: InputMaybe<Meta_Image_Sizes__Card__Filename_Operator>;
+  sizes__card__filesize?: InputMaybe<Meta_Image_Sizes__Card__Filesize_Operator>;
+  sizes__card__height?: InputMaybe<Meta_Image_Sizes__Card__Height_Operator>;
+  sizes__card__mimeType?: InputMaybe<Meta_Image_Sizes__Card__MimeType_Operator>;
+  sizes__card__url?: InputMaybe<Meta_Image_Sizes__Card__Url_Operator>;
+  sizes__card__width?: InputMaybe<Meta_Image_Sizes__Card__Width_Operator>;
+  sizes__feature__filename?: InputMaybe<Meta_Image_Sizes__Feature__Filename_Operator>;
+  sizes__feature__filesize?: InputMaybe<Meta_Image_Sizes__Feature__Filesize_Operator>;
+  sizes__feature__height?: InputMaybe<Meta_Image_Sizes__Feature__Height_Operator>;
+  sizes__feature__mimeType?: InputMaybe<Meta_Image_Sizes__Feature__MimeType_Operator>;
+  sizes__feature__url?: InputMaybe<Meta_Image_Sizes__Feature__Url_Operator>;
+  sizes__feature__width?: InputMaybe<Meta_Image_Sizes__Feature__Width_Operator>;
+  updatedAt?: InputMaybe<Meta_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<Meta_Image_Url_Operator>;
+  width?: InputMaybe<Meta_Image_Width_Operator>;
+};
+
+export type Meta_Image_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<Meta_Image_Where_And>>>;
+  OR?: InputMaybe<Array<InputMaybe<Meta_Image_Where_Or>>>;
+  alt?: InputMaybe<Meta_Image_Alt_Operator>;
+  createdAt?: InputMaybe<Meta_Image_CreatedAt_Operator>;
+  filename?: InputMaybe<Meta_Image_Filename_Operator>;
+  filesize?: InputMaybe<Meta_Image_Filesize_Operator>;
+  focalX?: InputMaybe<Meta_Image_FocalX_Operator>;
+  focalY?: InputMaybe<Meta_Image_FocalY_Operator>;
+  height?: InputMaybe<Meta_Image_Height_Operator>;
+  id?: InputMaybe<Meta_Image_Id_Operator>;
+  mimeType?: InputMaybe<Meta_Image_MimeType_Operator>;
+  sizes__card__filename?: InputMaybe<Meta_Image_Sizes__Card__Filename_Operator>;
+  sizes__card__filesize?: InputMaybe<Meta_Image_Sizes__Card__Filesize_Operator>;
+  sizes__card__height?: InputMaybe<Meta_Image_Sizes__Card__Height_Operator>;
+  sizes__card__mimeType?: InputMaybe<Meta_Image_Sizes__Card__MimeType_Operator>;
+  sizes__card__url?: InputMaybe<Meta_Image_Sizes__Card__Url_Operator>;
+  sizes__card__width?: InputMaybe<Meta_Image_Sizes__Card__Width_Operator>;
+  sizes__feature__filename?: InputMaybe<Meta_Image_Sizes__Feature__Filename_Operator>;
+  sizes__feature__filesize?: InputMaybe<Meta_Image_Sizes__Feature__Filesize_Operator>;
+  sizes__feature__height?: InputMaybe<Meta_Image_Sizes__Feature__Height_Operator>;
+  sizes__feature__mimeType?: InputMaybe<Meta_Image_Sizes__Feature__MimeType_Operator>;
+  sizes__feature__url?: InputMaybe<Meta_Image_Sizes__Feature__Url_Operator>;
+  sizes__feature__width?: InputMaybe<Meta_Image_Sizes__Feature__Width_Operator>;
+  updatedAt?: InputMaybe<Meta_Image_UpdatedAt_Operator>;
+  url?: InputMaybe<Meta_Image_Url_Operator>;
+  width?: InputMaybe<Meta_Image_Width_Operator>;
+};
+
+export type Meta_Image_Width_Operator = {
+  equals?: InputMaybe<Scalars['Float']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  greater_than?: InputMaybe<Scalars['Float']>;
+  greater_than_equal?: InputMaybe<Scalars['Float']>;
+  less_than?: InputMaybe<Scalars['Float']>;
+  less_than_equal?: InputMaybe<Scalars['Float']>;
+  not_equals?: InputMaybe<Scalars['Float']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createArticle?: Maybe<Article>;
@@ -4220,6 +4853,7 @@ export type Page = {
   header?: Maybe<Page_Header>;
   id?: Maybe<Scalars['String']>;
   layout?: Maybe<Page_Layout>;
+  meta?: Maybe<Meta>;
   showSideNavigation?: Maybe<Scalars['Boolean']>;
   slug?: Maybe<Scalars['String']>;
   title: Scalars['String'];
@@ -4255,6 +4889,7 @@ export type PageDocAccessFields = {
   blocks?: Maybe<PageDocAccessFields_Blocks>;
   createdAt?: Maybe<PageDocAccessFields_CreatedAt>;
   description?: Maybe<PageDocAccessFields_Description>;
+  meta?: Maybe<PageDocAccessFields_Meta>;
   showSideNavigation?: Maybe<PageDocAccessFields_ShowSideNavigation>;
   slug?: Maybe<PageDocAccessFields_Slug>;
   title?: Maybe<PageDocAccessFields_Title>;
@@ -4342,6 +4977,126 @@ export type PageDocAccessFields_Description_Read = {
 
 export type PageDocAccessFields_Description_Update = {
   __typename?: 'PageDocAccessFields_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta = {
+  __typename?: 'PageDocAccessFields_meta';
+  create?: Maybe<PageDocAccessFields_Meta_Create>;
+  delete?: Maybe<PageDocAccessFields_Meta_Delete>;
+  fields?: Maybe<PageDocAccessFields_Meta_Fields>;
+  read?: Maybe<PageDocAccessFields_Meta_Read>;
+  update?: Maybe<PageDocAccessFields_Meta_Update>;
+};
+
+export type PageDocAccessFields_Meta_Create = {
+  __typename?: 'PageDocAccessFields_meta_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Delete = {
+  __typename?: 'PageDocAccessFields_meta_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Fields = {
+  __typename?: 'PageDocAccessFields_meta_Fields';
+  description?: Maybe<PageDocAccessFields_Meta_Description>;
+  image?: Maybe<PageDocAccessFields_Meta_Image>;
+  title?: Maybe<PageDocAccessFields_Meta_Title>;
+};
+
+export type PageDocAccessFields_Meta_Read = {
+  __typename?: 'PageDocAccessFields_meta_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Update = {
+  __typename?: 'PageDocAccessFields_meta_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Description = {
+  __typename?: 'PageDocAccessFields_meta_description';
+  create?: Maybe<PageDocAccessFields_Meta_Description_Create>;
+  delete?: Maybe<PageDocAccessFields_Meta_Description_Delete>;
+  read?: Maybe<PageDocAccessFields_Meta_Description_Read>;
+  update?: Maybe<PageDocAccessFields_Meta_Description_Update>;
+};
+
+export type PageDocAccessFields_Meta_Description_Create = {
+  __typename?: 'PageDocAccessFields_meta_description_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Description_Delete = {
+  __typename?: 'PageDocAccessFields_meta_description_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Description_Read = {
+  __typename?: 'PageDocAccessFields_meta_description_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Description_Update = {
+  __typename?: 'PageDocAccessFields_meta_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Image = {
+  __typename?: 'PageDocAccessFields_meta_image';
+  create?: Maybe<PageDocAccessFields_Meta_Image_Create>;
+  delete?: Maybe<PageDocAccessFields_Meta_Image_Delete>;
+  read?: Maybe<PageDocAccessFields_Meta_Image_Read>;
+  update?: Maybe<PageDocAccessFields_Meta_Image_Update>;
+};
+
+export type PageDocAccessFields_Meta_Image_Create = {
+  __typename?: 'PageDocAccessFields_meta_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Image_Delete = {
+  __typename?: 'PageDocAccessFields_meta_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Image_Read = {
+  __typename?: 'PageDocAccessFields_meta_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Image_Update = {
+  __typename?: 'PageDocAccessFields_meta_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Title = {
+  __typename?: 'PageDocAccessFields_meta_title';
+  create?: Maybe<PageDocAccessFields_Meta_Title_Create>;
+  delete?: Maybe<PageDocAccessFields_Meta_Title_Delete>;
+  read?: Maybe<PageDocAccessFields_Meta_Title_Read>;
+  update?: Maybe<PageDocAccessFields_Meta_Title_Update>;
+};
+
+export type PageDocAccessFields_Meta_Title_Create = {
+  __typename?: 'PageDocAccessFields_meta_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Title_Delete = {
+  __typename?: 'PageDocAccessFields_meta_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Title_Read = {
+  __typename?: 'PageDocAccessFields_meta_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_Meta_Title_Update = {
+  __typename?: 'PageDocAccessFields_meta_title_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -4462,6 +5217,7 @@ export type PageFields = {
   blocks?: Maybe<PageFields_Blocks>;
   createdAt?: Maybe<PageFields_CreatedAt>;
   description?: Maybe<PageFields_Description>;
+  meta?: Maybe<PageFields_Meta>;
   showSideNavigation?: Maybe<PageFields_ShowSideNavigation>;
   slug?: Maybe<PageFields_Slug>;
   title?: Maybe<PageFields_Title>;
@@ -4549,6 +5305,126 @@ export type PageFields_Description_Read = {
 
 export type PageFields_Description_Update = {
   __typename?: 'PageFields_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta = {
+  __typename?: 'PageFields_meta';
+  create?: Maybe<PageFields_Meta_Create>;
+  delete?: Maybe<PageFields_Meta_Delete>;
+  fields?: Maybe<PageFields_Meta_Fields>;
+  read?: Maybe<PageFields_Meta_Read>;
+  update?: Maybe<PageFields_Meta_Update>;
+};
+
+export type PageFields_Meta_Create = {
+  __typename?: 'PageFields_meta_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Delete = {
+  __typename?: 'PageFields_meta_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Fields = {
+  __typename?: 'PageFields_meta_Fields';
+  description?: Maybe<PageFields_Meta_Description>;
+  image?: Maybe<PageFields_Meta_Image>;
+  title?: Maybe<PageFields_Meta_Title>;
+};
+
+export type PageFields_Meta_Read = {
+  __typename?: 'PageFields_meta_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Update = {
+  __typename?: 'PageFields_meta_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Description = {
+  __typename?: 'PageFields_meta_description';
+  create?: Maybe<PageFields_Meta_Description_Create>;
+  delete?: Maybe<PageFields_Meta_Description_Delete>;
+  read?: Maybe<PageFields_Meta_Description_Read>;
+  update?: Maybe<PageFields_Meta_Description_Update>;
+};
+
+export type PageFields_Meta_Description_Create = {
+  __typename?: 'PageFields_meta_description_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Description_Delete = {
+  __typename?: 'PageFields_meta_description_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Description_Read = {
+  __typename?: 'PageFields_meta_description_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Description_Update = {
+  __typename?: 'PageFields_meta_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Image = {
+  __typename?: 'PageFields_meta_image';
+  create?: Maybe<PageFields_Meta_Image_Create>;
+  delete?: Maybe<PageFields_Meta_Image_Delete>;
+  read?: Maybe<PageFields_Meta_Image_Read>;
+  update?: Maybe<PageFields_Meta_Image_Update>;
+};
+
+export type PageFields_Meta_Image_Create = {
+  __typename?: 'PageFields_meta_image_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Image_Delete = {
+  __typename?: 'PageFields_meta_image_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Image_Read = {
+  __typename?: 'PageFields_meta_image_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Image_Update = {
+  __typename?: 'PageFields_meta_image_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Title = {
+  __typename?: 'PageFields_meta_title';
+  create?: Maybe<PageFields_Meta_Title_Create>;
+  delete?: Maybe<PageFields_Meta_Title_Delete>;
+  read?: Maybe<PageFields_Meta_Title_Read>;
+  update?: Maybe<PageFields_Meta_Title_Update>;
+};
+
+export type PageFields_Meta_Title_Create = {
+  __typename?: 'PageFields_meta_title_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Title_Delete = {
+  __typename?: 'PageFields_meta_title_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Title_Read = {
+  __typename?: 'PageFields_meta_title_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_Meta_Title_Update = {
+  __typename?: 'PageFields_meta_title_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -4734,6 +5610,31 @@ export type Page_Id_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type Page_Meta__Description_Operator = {
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type Page_Meta__Image_Operator = {
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type Page_Meta__Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type Page_ShowSideNavigation_Operator = {
   equals?: InputMaybe<Scalars['Boolean']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -4778,6 +5679,9 @@ export type Page_Where = {
   createdAt?: InputMaybe<Page_CreatedAt_Operator>;
   header__description?: InputMaybe<Page_Header__Description_Operator>;
   id?: InputMaybe<Page_Id_Operator>;
+  meta__description?: InputMaybe<Page_Meta__Description_Operator>;
+  meta__image?: InputMaybe<Page_Meta__Image_Operator>;
+  meta__title?: InputMaybe<Page_Meta__Title_Operator>;
   showSideNavigation?: InputMaybe<Page_ShowSideNavigation_Operator>;
   slug?: InputMaybe<Page_Slug_Operator>;
   title?: InputMaybe<Page_Title_Operator>;
@@ -4790,6 +5694,9 @@ export type Page_Where_And = {
   createdAt?: InputMaybe<Page_CreatedAt_Operator>;
   header__description?: InputMaybe<Page_Header__Description_Operator>;
   id?: InputMaybe<Page_Id_Operator>;
+  meta__description?: InputMaybe<Page_Meta__Description_Operator>;
+  meta__image?: InputMaybe<Page_Meta__Image_Operator>;
+  meta__title?: InputMaybe<Page_Meta__Title_Operator>;
   showSideNavigation?: InputMaybe<Page_ShowSideNavigation_Operator>;
   slug?: InputMaybe<Page_Slug_Operator>;
   title?: InputMaybe<Page_Title_Operator>;
@@ -4802,6 +5709,9 @@ export type Page_Where_Or = {
   createdAt?: InputMaybe<Page_CreatedAt_Operator>;
   header__description?: InputMaybe<Page_Header__Description_Operator>;
   id?: InputMaybe<Page_Id_Operator>;
+  meta__description?: InputMaybe<Page_Meta__Description_Operator>;
+  meta__image?: InputMaybe<Page_Meta__Image_Operator>;
+  meta__title?: InputMaybe<Page_Meta__Title_Operator>;
   showSideNavigation?: InputMaybe<Page_ShowSideNavigation_Operator>;
   slug?: InputMaybe<Page_Slug_Operator>;
   title?: InputMaybe<Page_Title_Operator>;
@@ -5963,6 +6873,7 @@ export type MutationArticleInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   header?: InputMaybe<MutationArticle_HeaderInput>;
   layout?: InputMaybe<MutationArticle_LayoutInput>;
+  meta?: InputMaybe<MutationArticle_MetaInput>;
   publishedAt?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
   title: Scalars['String'];
@@ -5974,6 +6885,7 @@ export type MutationArticleUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   header?: InputMaybe<MutationArticleUpdate_HeaderInput>;
   layout?: InputMaybe<MutationArticleUpdate_LayoutInput>;
+  meta?: InputMaybe<MutationArticleUpdate_MetaInput>;
   publishedAt?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
@@ -5989,6 +6901,12 @@ export type MutationArticleUpdate_LayoutInput = {
   blocks?: InputMaybe<Scalars['JSON']>;
 };
 
+export type MutationArticleUpdate_MetaInput = {
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
 export type MutationArticle_HeaderInput = {
   description: Scalars['JSON'];
   featuredImage?: InputMaybe<Scalars['String']>;
@@ -5996,6 +6914,12 @@ export type MutationArticle_HeaderInput = {
 
 export type MutationArticle_LayoutInput = {
   blocks?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MutationArticle_MetaInput = {
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationMediaInput = {
@@ -6078,6 +7002,7 @@ export type MutationPageInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   header?: InputMaybe<MutationPage_HeaderInput>;
   layout?: InputMaybe<MutationPage_LayoutInput>;
+  meta?: InputMaybe<MutationPage_MetaInput>;
   showSideNavigation?: InputMaybe<Scalars['Boolean']>;
   slug?: InputMaybe<Scalars['String']>;
   title: Scalars['String'];
@@ -6088,6 +7013,7 @@ export type MutationPageUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   header?: InputMaybe<MutationPageUpdate_HeaderInput>;
   layout?: InputMaybe<MutationPageUpdate_LayoutInput>;
+  meta?: InputMaybe<MutationPageUpdate_MetaInput>;
   showSideNavigation?: InputMaybe<Scalars['Boolean']>;
   slug?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
@@ -6102,12 +7028,24 @@ export type MutationPageUpdate_LayoutInput = {
   blocks?: InputMaybe<Scalars['JSON']>;
 };
 
+export type MutationPageUpdate_MetaInput = {
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
 export type MutationPage_HeaderInput = {
   description: Scalars['JSON'];
 };
 
 export type MutationPage_LayoutInput = {
   blocks?: InputMaybe<Scalars['JSON']>;
+};
+
+export type MutationPage_MetaInput = {
+  description?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 export type MutationPayloadPreferenceInput = {
@@ -6330,6 +7268,31 @@ export type VersionsArticle_Version__CreatedAt_Operator = {
   not_equals?: InputMaybe<Scalars['DateTime']>;
 };
 
+export type VersionsArticle_Version__Meta__Description_Operator = {
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type VersionsArticle_Version__Meta__Image_Operator = {
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+};
+
+export type VersionsArticle_Version__Meta__Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contains?: InputMaybe<Scalars['String']>;
+  equals?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  like?: InputMaybe<Scalars['String']>;
+  not_equals?: InputMaybe<Scalars['String']>;
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
 export type VersionsArticle_Version__PublishedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']>;
   exists?: InputMaybe<Scalars['Boolean']>;
@@ -6385,6 +7348,9 @@ export type VersionsArticle_Where = {
   updatedAt?: InputMaybe<VersionsArticle_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsArticle_Version___Status_Operator>;
   version__createdAt?: InputMaybe<VersionsArticle_Version__CreatedAt_Operator>;
+  version__meta__description?: InputMaybe<VersionsArticle_Version__Meta__Description_Operator>;
+  version__meta__image?: InputMaybe<VersionsArticle_Version__Meta__Image_Operator>;
+  version__meta__title?: InputMaybe<VersionsArticle_Version__Meta__Title_Operator>;
   version__publishedAt?: InputMaybe<VersionsArticle_Version__PublishedAt_Operator>;
   version__slug?: InputMaybe<VersionsArticle_Version__Slug_Operator>;
   version__title?: InputMaybe<VersionsArticle_Version__Title_Operator>;
@@ -6403,6 +7369,9 @@ export type VersionsArticle_Where_And = {
   updatedAt?: InputMaybe<VersionsArticle_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsArticle_Version___Status_Operator>;
   version__createdAt?: InputMaybe<VersionsArticle_Version__CreatedAt_Operator>;
+  version__meta__description?: InputMaybe<VersionsArticle_Version__Meta__Description_Operator>;
+  version__meta__image?: InputMaybe<VersionsArticle_Version__Meta__Image_Operator>;
+  version__meta__title?: InputMaybe<VersionsArticle_Version__Meta__Title_Operator>;
   version__publishedAt?: InputMaybe<VersionsArticle_Version__PublishedAt_Operator>;
   version__slug?: InputMaybe<VersionsArticle_Version__Slug_Operator>;
   version__title?: InputMaybe<VersionsArticle_Version__Title_Operator>;
@@ -6421,6 +7390,9 @@ export type VersionsArticle_Where_Or = {
   updatedAt?: InputMaybe<VersionsArticle_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsArticle_Version___Status_Operator>;
   version__createdAt?: InputMaybe<VersionsArticle_Version__CreatedAt_Operator>;
+  version__meta__description?: InputMaybe<VersionsArticle_Version__Meta__Description_Operator>;
+  version__meta__image?: InputMaybe<VersionsArticle_Version__Meta__Image_Operator>;
+  version__meta__title?: InputMaybe<VersionsArticle_Version__Meta__Title_Operator>;
   version__publishedAt?: InputMaybe<VersionsArticle_Version__PublishedAt_Operator>;
   version__slug?: InputMaybe<VersionsArticle_Version__Slug_Operator>;
   version__title?: InputMaybe<VersionsArticle_Version__Title_Operator>;
@@ -6585,6 +7557,15 @@ export const ImageBlockFragmentFragmentDoc = gql`
   blockType
 }
     ${MediaFieldFragmentFragmentDoc}`;
+export const MetaFieldFragmentFragmentDoc = gql`
+    fragment MetaFieldFragment on Meta {
+  title
+  description
+  image {
+    ...MediaFieldFragment
+  }
+}
+    ${MediaFieldFragmentFragmentDoc}`;
 export const ArticlesDocument = gql`
     query Articles($draft: Boolean, $where: Article_where, $limit: Int, $page: Int, $sort: String) {
   Articles(draft: $draft, where: $where, limit: $limit, page: $page, sort: $sort) {
@@ -6634,11 +7615,15 @@ export const ArticleDocument = gql`
           ...ImageBlockFragment
         }
       }
+      meta {
+        ...MetaFieldFragment
+      }
     }
   }
 }
     ${ContentBlockFragmentFragmentDoc}
-${ImageBlockFragmentFragmentDoc}`;
+${ImageBlockFragmentFragmentDoc}
+${MetaFieldFragmentFragmentDoc}`;
 export const PagesDocument = gql`
     query Pages($where: Page_where, $limit: Int, $page: Int, $sort: String) {
   Pages(where: $where, limit: $limit, page: $page, sort: $sort) {
@@ -6691,6 +7676,9 @@ export const PageDocument = gql`
           ...CardContentBlockFragment
         }
       }
+      meta {
+        ...MetaFieldFragment
+      }
     }
   }
 }
@@ -6701,7 +7689,8 @@ ${ArticleScrollerBlockFragmentFragmentDoc}
 ${CardListBlockFragmentFragmentDoc}
 ${IconsRowBlockFragmentFragmentDoc}
 ${ColumnsBlockFragmentFragmentDoc}
-${CardContentBlockFragmentFragmentDoc}`;
+${CardContentBlockFragmentFragmentDoc}
+${MetaFieldFragmentFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 

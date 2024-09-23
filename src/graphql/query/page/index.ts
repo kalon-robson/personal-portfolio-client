@@ -1,6 +1,7 @@
 import gql from 'graphql-tag';
 import { ARTICLE_SCROLLER_BLOCK, BUTTONS_BLOCK, CARD_CONTENT_BLOCK, CARD_LIST_BLOCK, COLUMNS_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
 import { ICONS_ROW_BLOCK } from '../../fragments/blocks/iconsRow';
+import { META_FIELD } from '../../fragments/fields';
 
 export const PAGES = gql`
   query Pages($where: Page_where, $limit: Int, $page: Int, $sort: String) {
@@ -55,6 +56,9 @@ export const PAGE = gql`
             ...CardContentBlockFragment
           }
         }
+        meta {
+          ...MetaFieldFragment
+        }
       }
     }
   }
@@ -66,4 +70,5 @@ export const PAGE = gql`
   ${ICONS_ROW_BLOCK}
   ${COLUMNS_BLOCK}
   ${CARD_CONTENT_BLOCK}
+  ${META_FIELD}
 `;

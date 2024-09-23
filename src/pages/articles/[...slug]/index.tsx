@@ -2,7 +2,7 @@ import React from 'react';
 import type { GetServerSideProps } from 'next';
 import { WindowInfoProvider } from '@faceless-ui/window-info';
 import { Article } from '../../../graphql/generated/schema';
-import { RenderBlocks } from '../../../components';
+import { Head, RenderBlocks } from '../../../components';
 import { cmsClient } from '../../../graphql';
 import { ContainerWithRightSideMenu } from '../../../components/layouts/ContainerWithRightSideMenu';
 import { PageHeader } from '../../../sections';
@@ -20,26 +20,32 @@ const ArticlePage: React.FC<Props> = ({
   }
 
   return (
-    <WindowInfoProvider
-      breakpoints={{
-        l: `(max-width: ${breakpoints.lg}px)`,
-        m: `(max-width: ${breakpoints.md}px)`,
-        s: `(max-width: ${breakpoints.sm}px)`,
-        xl: `(max-width: ${breakpoints.xl}px)`,
-      }}
-    >
-      <ContainerWithRightSideMenu>
-        <PageHeader
-          title={article.title || ''}
-          header={article.header}
-          displayGoBackButton
-        />
-        <RenderBlocks
-          blocks={article.layout?.blocks || []}
-        />
-      </ContainerWithRightSideMenu>
-    </WindowInfoProvider>
-
+    <React.Fragment>
+      <Head
+        title={article.meta?.title || undefined}
+        description={article.meta?.description || undefined}
+        ogImage={article.meta?.image?.sizes?.card?.url || article.meta?.image?.url || undefined}
+      />
+      <WindowInfoProvider
+        breakpoints={{
+          l: `(max-width: ${breakpoints.lg}px)`,
+          m: `(max-width: ${breakpoints.md}px)`,
+          s: `(max-width: ${breakpoints.sm}px)`,
+          xl: `(max-width: ${breakpoints.xl}px)`,
+        }}
+      >
+        <ContainerWithRightSideMenu>
+          <PageHeader
+            title={article.title || ''}
+            header={article.header}
+            displayGoBackButton
+          />
+          <RenderBlocks
+            blocks={article.layout?.blocks || []}
+          />
+        </ContainerWithRightSideMenu>
+      </WindowInfoProvider>
+    </React.Fragment>
   );
 };
 

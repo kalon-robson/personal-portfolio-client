@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import { CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
-import { MEDIA_FIELD } from '../../fragments/fields';
+import { MEDIA_FIELD, META_FIELD } from '../../fragments/fields';
 
 export const ARTICLES = gql`
   query Articles($draft: Boolean, $where: Article_where, $limit: Int, $page: Int, $sort: String) {
@@ -53,9 +53,13 @@ export const ARTICLE = gql`
             ...ImageBlockFragment
           }
         }
+        meta {
+          ...MetaFieldFragment
+        }
       }
     }
   }
   ${CONTENT_BLOCK}
   ${IMAGE_BLOCK}
+  ${META_FIELD}
 `;
