@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { pageHeaderStyles } from './styles';
 // eslint-disable-next-line camelcase
 import { Article_Header, Page_Header } from '../../graphql/generated/schema';
@@ -18,7 +19,8 @@ export const PageHeader: React.FC<Props> = ({
   displayGoBackButton,
 }) => {
   const [greeting, setGreeting] = useState<string>('');
-  const styles = pageHeaderStyles();
+
+  const router = useRouter();
 
   useEffect(() => {
     const date = new Date();
@@ -33,13 +35,15 @@ export const PageHeader: React.FC<Props> = ({
     }
   }, []);
 
+  const styles = pageHeaderStyles();
+
   return (
     <Container className={styles.container}>
       {
         displayGoBackButton && (
           <AppButton
             type="link"
-            onClick={() => window.history.back()}
+            onClick={() => router.back()}
           >
             <Icon icon="arrowLeftSharpLight" />
             Go back
