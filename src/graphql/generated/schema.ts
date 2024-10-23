@@ -14,6 +14,8 @@ export type CardContentBlockFragmentFragment = { __typename?: 'CardContent', con
 
 export type CardListBlockFragmentFragment = { __typename?: 'CardList', id?: string | null, blockName?: string | null, blockType?: string | null, cards?: Array<{ __typename?: 'CardList_Cards', id?: string | null, title?: string | null, content?: any | null, tags?: Array<string | null> | null }> | null };
 
+export type CodeSnippetBlockFragmentFragment = { __typename?: 'CodeSnippet', code?: string | null, language?: CodeSnippet_Language | null, id?: string | null, blockName?: string | null, blockType?: string | null };
+
 export type ColumnsBlockFragmentFragment = { __typename?: 'Columns', id?: string | null, blockName?: string | null, blockType?: string | null, columns?: Array<{ __typename?: 'Columns_Columns', id?: string | null, columnWidth?: Columns_Columns_ColumnWidth | null, blocks?: Array<{ __typename?: 'CardContent', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null }> | null }> | null };
 
 export type ContentBlockFragmentFragment = { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null };
@@ -45,7 +47,7 @@ export type ArticleQueryVariables = Exact<{
 }>;
 
 
-export type ArticleQuery = { __typename?: 'Query', Articles?: { __typename?: 'Articles', docs?: Array<{ __typename?: 'Article', id?: string | null, title?: string | null, slug?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null, layout?: { __typename?: 'Article_Layout', blocks?: Array<{ __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null, meta?: { __typename?: 'Meta', title?: string | null, description?: string | null, image?: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } | null } | null } | null> | null } | null };
+export type ArticleQuery = { __typename?: 'Query', Articles?: { __typename?: 'Articles', docs?: Array<{ __typename?: 'Article', id?: string | null, title?: string | null, slug?: string | null, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, header?: { __typename?: 'Article_Header', description?: any | null } | null, layout?: { __typename?: 'Article_Layout', blocks?: Array<{ __typename?: 'CodeSnippet', code?: string | null, language?: CodeSnippet_Language | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Content', content?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null } | { __typename?: 'Image', caption?: any | null, id?: string | null, blockName?: string | null, blockType?: string | null, image: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } }> | null } | null, meta?: { __typename?: 'Meta', title?: string | null, description?: string | null, image?: { __typename?: 'Media', id?: string | null, alt: string, updatedAt?: any | null, createdAt?: any | null, url?: string | null, filename?: string | null, mimeType?: string | null, filesize?: number | null, width?: number | null, height?: number | null, focalX?: number | null, focalY?: number | null, sizes?: { __typename?: 'Media_Sizes', card?: { __typename?: 'Media_Sizes_Card', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null, feature?: { __typename?: 'Media_Sizes_Feature', url?: string | null, width?: number | null, height?: number | null, mimeType?: string | null, filesize?: number | null, filename?: string | null } | null } | null } | null } | null } | null> | null } | null };
 
 export type PagesQueryVariables = Exact<{
   where?: InputMaybe<Page_Where>;
@@ -1339,7 +1341,7 @@ export type ArticleVersion_Version_Layout = {
   blocks?: Maybe<Array<ArticleVersion_Version_Layout_Blocks>>;
 };
 
-export type ArticleVersion_Version_Layout_Blocks = Content | Image;
+export type ArticleVersion_Version_Layout_Blocks = CodeSnippet | Content | Image;
 
 export enum ArticleVersion_Version__Status {
   Draft = 'draft',
@@ -1706,7 +1708,7 @@ export type Article_Layout = {
   blocks?: Maybe<Array<Article_Layout_Blocks>>;
 };
 
-export type Article_Layout_Blocks = Content | Image;
+export type Article_Layout_Blocks = CodeSnippet | Content | Image;
 
 export enum Article__Status {
   Draft = 'draft',
@@ -1948,6 +1950,22 @@ export type CardList_Cards = {
 export type CardList_CardsContentArgs = {
   depth?: InputMaybe<Scalars['Int']>;
 };
+
+export type CodeSnippet = {
+  __typename?: 'CodeSnippet';
+  blockName?: Maybe<Scalars['String']>;
+  blockType?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  language?: Maybe<CodeSnippet_Language>;
+};
+
+export enum CodeSnippet_Language {
+  Css = 'css',
+  Html = 'html',
+  Plaintext = 'plaintext',
+  Typescript = 'typescript'
+}
 
 export type Columns = {
   __typename?: 'Columns';
@@ -4852,6 +4870,7 @@ export type Page = {
   createdAt?: Maybe<Scalars['DateTime']>;
   header?: Maybe<Page_Header>;
   id?: Maybe<Scalars['String']>;
+  isPlaceholderPage?: Maybe<Scalars['Boolean']>;
   layout?: Maybe<Page_Layout>;
   meta?: Maybe<Meta>;
   showSideNavigation?: Maybe<Scalars['Boolean']>;
@@ -4889,6 +4908,7 @@ export type PageDocAccessFields = {
   blocks?: Maybe<PageDocAccessFields_Blocks>;
   createdAt?: Maybe<PageDocAccessFields_CreatedAt>;
   description?: Maybe<PageDocAccessFields_Description>;
+  isPlaceholderPage?: Maybe<PageDocAccessFields_IsPlaceholderPage>;
   meta?: Maybe<PageDocAccessFields_Meta>;
   showSideNavigation?: Maybe<PageDocAccessFields_ShowSideNavigation>;
   slug?: Maybe<PageDocAccessFields_Slug>;
@@ -4977,6 +4997,34 @@ export type PageDocAccessFields_Description_Read = {
 
 export type PageDocAccessFields_Description_Update = {
   __typename?: 'PageDocAccessFields_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_IsPlaceholderPage = {
+  __typename?: 'PageDocAccessFields_isPlaceholderPage';
+  create?: Maybe<PageDocAccessFields_IsPlaceholderPage_Create>;
+  delete?: Maybe<PageDocAccessFields_IsPlaceholderPage_Delete>;
+  read?: Maybe<PageDocAccessFields_IsPlaceholderPage_Read>;
+  update?: Maybe<PageDocAccessFields_IsPlaceholderPage_Update>;
+};
+
+export type PageDocAccessFields_IsPlaceholderPage_Create = {
+  __typename?: 'PageDocAccessFields_isPlaceholderPage_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_IsPlaceholderPage_Delete = {
+  __typename?: 'PageDocAccessFields_isPlaceholderPage_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_IsPlaceholderPage_Read = {
+  __typename?: 'PageDocAccessFields_isPlaceholderPage_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageDocAccessFields_IsPlaceholderPage_Update = {
+  __typename?: 'PageDocAccessFields_isPlaceholderPage_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -5217,6 +5265,7 @@ export type PageFields = {
   blocks?: Maybe<PageFields_Blocks>;
   createdAt?: Maybe<PageFields_CreatedAt>;
   description?: Maybe<PageFields_Description>;
+  isPlaceholderPage?: Maybe<PageFields_IsPlaceholderPage>;
   meta?: Maybe<PageFields_Meta>;
   showSideNavigation?: Maybe<PageFields_ShowSideNavigation>;
   slug?: Maybe<PageFields_Slug>;
@@ -5305,6 +5354,34 @@ export type PageFields_Description_Read = {
 
 export type PageFields_Description_Update = {
   __typename?: 'PageFields_description_Update';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_IsPlaceholderPage = {
+  __typename?: 'PageFields_isPlaceholderPage';
+  create?: Maybe<PageFields_IsPlaceholderPage_Create>;
+  delete?: Maybe<PageFields_IsPlaceholderPage_Delete>;
+  read?: Maybe<PageFields_IsPlaceholderPage_Read>;
+  update?: Maybe<PageFields_IsPlaceholderPage_Update>;
+};
+
+export type PageFields_IsPlaceholderPage_Create = {
+  __typename?: 'PageFields_isPlaceholderPage_Create';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_IsPlaceholderPage_Delete = {
+  __typename?: 'PageFields_isPlaceholderPage_Delete';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_IsPlaceholderPage_Read = {
+  __typename?: 'PageFields_isPlaceholderPage_Read';
+  permission: Scalars['Boolean'];
+};
+
+export type PageFields_IsPlaceholderPage_Update = {
+  __typename?: 'PageFields_isPlaceholderPage_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -5610,6 +5687,12 @@ export type Page_Id_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type Page_IsPlaceholderPage_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  not_equals?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type Page_Meta__Description_Operator = {
   contains?: InputMaybe<Scalars['String']>;
   equals?: InputMaybe<Scalars['String']>;
@@ -5679,6 +5762,7 @@ export type Page_Where = {
   createdAt?: InputMaybe<Page_CreatedAt_Operator>;
   header__description?: InputMaybe<Page_Header__Description_Operator>;
   id?: InputMaybe<Page_Id_Operator>;
+  isPlaceholderPage?: InputMaybe<Page_IsPlaceholderPage_Operator>;
   meta__description?: InputMaybe<Page_Meta__Description_Operator>;
   meta__image?: InputMaybe<Page_Meta__Image_Operator>;
   meta__title?: InputMaybe<Page_Meta__Title_Operator>;
@@ -5694,6 +5778,7 @@ export type Page_Where_And = {
   createdAt?: InputMaybe<Page_CreatedAt_Operator>;
   header__description?: InputMaybe<Page_Header__Description_Operator>;
   id?: InputMaybe<Page_Id_Operator>;
+  isPlaceholderPage?: InputMaybe<Page_IsPlaceholderPage_Operator>;
   meta__description?: InputMaybe<Page_Meta__Description_Operator>;
   meta__image?: InputMaybe<Page_Meta__Image_Operator>;
   meta__title?: InputMaybe<Page_Meta__Title_Operator>;
@@ -5709,6 +5794,7 @@ export type Page_Where_Or = {
   createdAt?: InputMaybe<Page_CreatedAt_Operator>;
   header__description?: InputMaybe<Page_Header__Description_Operator>;
   id?: InputMaybe<Page_Id_Operator>;
+  isPlaceholderPage?: InputMaybe<Page_IsPlaceholderPage_Operator>;
   meta__description?: InputMaybe<Page_Meta__Description_Operator>;
   meta__image?: InputMaybe<Page_Meta__Image_Operator>;
   meta__title?: InputMaybe<Page_Meta__Title_Operator>;
@@ -7001,6 +7087,7 @@ export type MutationMedia_Sizes_FeatureInput = {
 export type MutationPageInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   header?: InputMaybe<MutationPage_HeaderInput>;
+  isPlaceholderPage?: InputMaybe<Scalars['Boolean']>;
   layout?: InputMaybe<MutationPage_LayoutInput>;
   meta?: InputMaybe<MutationPage_MetaInput>;
   showSideNavigation?: InputMaybe<Scalars['Boolean']>;
@@ -7012,6 +7099,7 @@ export type MutationPageInput = {
 export type MutationPageUpdateInput = {
   createdAt?: InputMaybe<Scalars['String']>;
   header?: InputMaybe<MutationPageUpdate_HeaderInput>;
+  isPlaceholderPage?: InputMaybe<Scalars['Boolean']>;
   layout?: InputMaybe<MutationPageUpdate_LayoutInput>;
   meta?: InputMaybe<MutationPageUpdate_MetaInput>;
   showSideNavigation?: InputMaybe<Scalars['Boolean']>;
@@ -7469,6 +7557,15 @@ export const CardListBlockFragmentFragmentDoc = gql`
   blockType
 }
     `;
+export const CodeSnippetBlockFragmentFragmentDoc = gql`
+    fragment CodeSnippetBlockFragment on CodeSnippet {
+  code
+  language
+  id
+  blockName
+  blockType
+}
+    `;
 export const ContentBlockFragmentFragmentDoc = gql`
     fragment ContentBlockFragment on Content {
   content
@@ -7613,6 +7710,7 @@ export const ArticleDocument = gql`
         blocks {
           ...ContentBlockFragment
           ...ImageBlockFragment
+          ...CodeSnippetBlockFragment
         }
       }
       meta {
@@ -7623,6 +7721,7 @@ export const ArticleDocument = gql`
 }
     ${ContentBlockFragmentFragmentDoc}
 ${ImageBlockFragmentFragmentDoc}
+${CodeSnippetBlockFragmentFragmentDoc}
 ${MetaFieldFragmentFragmentDoc}`;
 export const PagesDocument = gql`
     query Pages($where: Page_where, $limit: Int, $page: Int, $sort: String) {

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-import { CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
+import { CODE_SNIPPET_BLOCK, CONTENT_BLOCK, IMAGE_BLOCK } from '../../fragments/blocks';
 import { MEDIA_FIELD, META_FIELD } from '../../fragments/fields';
 
 export const ARTICLES = gql`
@@ -51,6 +51,7 @@ export const ARTICLE = gql`
           blocks {
             ...ContentBlockFragment
             ...ImageBlockFragment
+            ...CodeSnippetBlockFragment
           }
         }
         meta {
@@ -62,4 +63,5 @@ export const ARTICLE = gql`
   ${CONTENT_BLOCK}
   ${IMAGE_BLOCK}
   ${META_FIELD}
+  ${CODE_SNIPPET_BLOCK}
 `;

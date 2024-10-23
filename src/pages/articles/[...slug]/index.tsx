@@ -34,7 +34,12 @@ const ArticlePage: React.FC<Props> = ({
           xl: `(max-width: ${breakpoints.xl}px)`,
         }}
       >
-        <ContainerWithRightSideMenu>
+        <ContainerWithRightSideMenu
+          navLinks={article.layout?.blocks?.filter((block) => block.blockName)?.map((block) => ({
+            path: block.blockName || '',
+            title: block.blockName || '',
+          })) || []}
+        >
           <PageHeader
             title={article.title || ''}
             header={article.header}
@@ -42,6 +47,7 @@ const ArticlePage: React.FC<Props> = ({
           />
           <RenderBlocks
             blocks={article.layout?.blocks || []}
+            addIdLinks
           />
         </ContainerWithRightSideMenu>
       </WindowInfoProvider>
