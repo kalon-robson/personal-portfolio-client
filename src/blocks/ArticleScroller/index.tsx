@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Slide, SliderProvider, SliderTrack } from '@faceless-ui/slider';
 import { useWindowInfo } from '@faceless-ui/window-info';
+import Link from 'next/link';
 import { ArticleScroller as ArticleScrollerType } from '../../graphql/generated/schema';
 import { articleScrollerComponentStyles } from './styles';
 import { Container } from '../../components/layouts';
@@ -41,6 +42,7 @@ export const ArticleScrollerComponent: React.FC<ArticleScrollerType> = ({
         <div className={styles.labelContainer}>
           <Icon icon="thoughtBubbleSharpLight" />
           <h2 className={styles.title}>Read My Thoughts</h2>
+          <Link href="/articles">See all</Link>
         </div>
       </Container>
       {

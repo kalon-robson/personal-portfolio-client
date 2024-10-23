@@ -32,11 +32,11 @@ export const containerWithRightSideMenuStyles = createUseStyles({
     transform: 'rotate(90deg)',
   },
   leftContainer: {
+    flex: 1,
     maxWidth: base(50),
   },
   link: {
     ...h5,
-
     '&:hover': {
       '& $linkCount': {
         color: `${colors.white} !important`,
@@ -46,15 +46,10 @@ export const containerWithRightSideMenuStyles = createUseStyles({
       textShadow: `0 0 10px ${colors.light} !important`,
       transition: 'all 300ms ease',
     },
-
     fontWeight: 400,
-
     marginBottom: spacing.small,
-
     textDecoration: 'none',
-
     transition: 'all 300ms ease-out',
-    // no word wrap
     whiteSpace: 'nowrap',
   },
   linkCount: {

@@ -43,7 +43,9 @@ export const PageHeader: React.FC<Props> = ({
         displayGoBackButton && (
           <AppButton
             type="link"
-            onClick={() => router.back()}
+            onClick={() => {
+              router.push(router.asPath.split('/')?.slice(0, -1).join('/') || '/');
+            }}
           >
             <Icon icon="arrowLeftSharpLight" />
             Go back

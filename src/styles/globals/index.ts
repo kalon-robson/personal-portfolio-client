@@ -62,6 +62,7 @@ export const globalStyles = createUseStyles({
   },
   mainContainer: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
   },
 });
