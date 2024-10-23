@@ -7,9 +7,6 @@ export const articleCardStyles = createUseStyles({
       '& $imageOverlay': {
         opacity: 0,
       },
-      '& $title': {
-        opacity: 0,
-      },
       background: '#292929',
       border: `1px solid ${colors.light}`,
 
