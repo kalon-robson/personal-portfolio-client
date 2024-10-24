@@ -37,7 +37,7 @@ export const CodeSnippetComponent: React.FC<CodeSnippet> = ({
             tabSize: 4,
           }}
           width="100%"
-          height={`${lines < 3 ? 40 : 40 + (lines * 20)}px`}
+          height={`${Math.min(500, lines < 3 ? 40 : 40 + (lines * 20))}px`}
         />
       </div>
 
