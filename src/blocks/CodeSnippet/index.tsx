@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MonacoEditor from '@monaco-editor/react';
 import { codeSnippetStyles } from './styles';
 import { Container } from '../../components/layouts';
@@ -8,6 +8,7 @@ export const CodeSnippetComponent: React.FC<CodeSnippet> = ({
   code,
   language,
 }) => {
+  const [lines] = useState<number>((code || '').split('\n').length);
   const styles = codeSnippetStyles();
 
   return (
@@ -28,14 +29,15 @@ export const CodeSnippetComponent: React.FC<CodeSnippet> = ({
               enabled: false,
             },
             padding: {
-              top: 20,
+              bottom: lines < 3 ? 10 : 20,
+              top: lines < 3 ? 10 : 20,
             },
             readOnly: true,
             scrollBeyondLastLine: false,
             tabSize: 4,
           }}
           width="100%"
-          height="100%"
+          height={`${lines < 3 ? 40 : 40 + (lines * 20)}px`}
         />
       </div>
 

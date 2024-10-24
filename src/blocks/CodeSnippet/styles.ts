@@ -6,7 +6,7 @@ export const codeSnippetStyles = createUseStyles({
     marginBottom: spacing.large,
   },
   editor: {
-    height: base(25),
+    maxHeight: base(25),
   },
   editorContainer: {
   },
