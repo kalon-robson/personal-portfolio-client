@@ -6,6 +6,7 @@ import { constructClassName } from '../../../utils/constructClassName';
 import { eventEmitter } from '../../../lib/eventEmitter';
 import { Icon } from '../../Icon';
 import { colors } from '../../../styles';
+import { prefersLightMode } from '../../../utils/prefersLightMode';
 
 interface Props {
   children: React.ReactNode;
@@ -68,7 +69,7 @@ export const ContainerWithRightSideMenu: React.FC<Props> = ({
             style={{ transform: `translateY(${(activeLinkIndex) * 71}px)` }}
           >
             <Icon
-              fill={colors.white}
+              fill={prefersLightMode() ? colors.dark : colors.white}
               size={30}
               className={styles.floatingIconIcon}
               icon="codeClassicRegularRotated90"

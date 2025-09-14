@@ -9,7 +9,6 @@ export const articleCardStyles = createUseStyles({
       },
       background: '#292929',
       border: `1px solid ${colors.light}`,
-
       boxShadow: `0 0 10px ${colors.light}`,
     },
     WebkitTapHighlightColor: 'transparent',
@@ -49,6 +48,7 @@ export const articleCardStyles = createUseStyles({
   title: {
     ...h5,
     bottom: spacing.medium,
+    color: colors.light,
     fontWeight: 700,
     left: spacing.medium,
     maxWidth: '80%',

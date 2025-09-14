@@ -1,10 +1,11 @@
 import { createUseStyles } from 'react-jss';
 import { base, colors, h5, queries, spacing } from '../../../styles';
+import { prefersLightMode } from '../../../utils/prefersLightMode';
 
 export const containerWithRightSideMenuStyles = createUseStyles({
   activeLink: {
     '& $linkCount': {
-      color: `${colors.white} !important`,
+      color: `${prefersLightMode() ? colors.dark : colors.white} !important`,
       transition: 'all 300ms ease',
     },
     color: colors.white,
@@ -17,7 +18,7 @@ export const containerWithRightSideMenuStyles = createUseStyles({
   },
   floatingIcon: {
     alignItems: 'center',
-    borderRight: `2px solid ${colors.white}`,
+    borderRight: `2px solid ${prefersLightMode() ? colors.dark : colors.white}`,
     display: 'flex',
     height: base(2),
     justifyContent: 'center',

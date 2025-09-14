@@ -3,11 +3,17 @@ import { base, body, colors, h3, h4, h5, spacing } from '../../../../styles';
 
 export const cardStyles = createUseStyles({
   activeCardContainer: {
+    '& *': {
+      color: `${colors.light} !important`,
+    },
     background: '#272727 !important',
     border: `1px solid ${colors.quartz} !important`,
   },
   cardContainer: {
     '&:hover': {
+      '& *': {
+        color: `${colors.light} !important`,
+      },
       background: '#272727',
       border: `1px solid ${colors.quartz}`,
     },
