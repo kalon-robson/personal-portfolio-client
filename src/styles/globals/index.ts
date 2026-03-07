@@ -41,7 +41,7 @@ export const globalStyles = createUseStyles({
       ...body,
       margin: `0 0 ${spacing.small} 0`,
     },
-    span: {
+    'span, li': {
       ...body,
     },
     strong: {
