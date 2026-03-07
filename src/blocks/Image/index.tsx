@@ -4,9 +4,11 @@ import { sizes } from './sizes';
 import { ImageBlockFragmentFragment } from '../../graphql/generated/schema';
 import { Container } from '../../components/layouts';
 import { imageStyles } from './styles';
+import { RichText } from '../../components';
 
 export const ImageComponent: React.FC<ImageBlockFragmentFragment> = ({
   image,
+  caption,
 }) => {
   const styles = imageStyles();
 
@@ -27,6 +29,11 @@ export const ImageComponent: React.FC<ImageBlockFragmentFragment> = ({
           height={image.height ?? 0}
           sizes={sizesToUse}
         />
+        {
+          caption && (
+            <RichText content={caption} />
+          )
+        }
       </Container>
     );
   }
