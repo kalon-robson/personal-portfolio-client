@@ -32,8 +32,8 @@ export const containerWithRightSideMenuStyles = createUseStyles({
     transform: 'rotate(90deg)',
   },
   leftContainer: {
-    flex: 1,
-    maxWidth: base(50),
+    flex: '1 1 auto',
+    minWidth: 0,
   },
   link: {
     ...h5,
@@ -68,6 +68,7 @@ export const containerWithRightSideMenuStyles = createUseStyles({
   },
   rightContainer: {
     borderLeft: `1px solid ${colors.quartz}`,
+    flex: `0 0 ${base(12)}`,
     padding: spacing.medium,
     [queries.lg]: {
       display: 'none',
