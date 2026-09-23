@@ -71,8 +71,8 @@ export const containerWithRightSideMenuStyles = createUseStyles({
     top: 0,
   },
   rightContainer: {
-    boxSizing: 'border-box',
     borderLeft: `1px solid ${colors.quartz}`,
+    boxSizing: 'border-box',
     flex: `0 0 ${base(24)}`,
     minWidth: 0,
     padding: spacing.medium,
