@@ -1,4 +1,4 @@
-onlyBuiltDependencies:
-  - '@swc/core'
-  - es5-ext
-  - sharp
+allowBuilds:
+  '@swc/core': true
+  es5-ext: true
+  sharp: true
